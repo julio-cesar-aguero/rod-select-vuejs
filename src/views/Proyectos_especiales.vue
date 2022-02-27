@@ -42,8 +42,4 @@
 </template>
 <style>
 
-#proyectos_especiales{
-    width: 100%;
-    overflow: hidden;
-}
 </style>

@@ -56,16 +56,18 @@ export default {
   },
   
   created() {
+
   window.addEventListener("resize", this.myEventHandler);
   window.onscroll = () => {
   let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight > document.documentElement.offsetHeight -1;
   console.log("max",bottomOfWindow)
   if (bottomOfWindow ) {
     // ...
-    this.$router.push('/nosotros')
+    this.$router.go(1)
     console.log("Michi");
   }
-};
+  }
+
 
   },
   destroyed() {

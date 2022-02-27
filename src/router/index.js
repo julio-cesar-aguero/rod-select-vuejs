@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/VistaGeneral.vue')
   },
   {
     path: '/nosotros',
@@ -44,6 +44,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Proyectos_especiales.vue')
   } ,
   {
+    path: '/slider',
+    name: 'Slider',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/Slider.vue')
+  } ,
+  {
     path: '/clientes',
     name: 'Clientes',
     // route level code-splitting
@@ -60,7 +68,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
   scrollBehavior(to, from, savedPosition) {
-    return{ left: 0, top: 0}
+    return{ left: 100, top: 100}
   }
   
 })

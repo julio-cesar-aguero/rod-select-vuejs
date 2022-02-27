@@ -7,16 +7,34 @@
                         
                         <h1>Cotiza tu proyecto con nosotros:</h1> <hr>
                         <label for="nombre" class="form-label"> <i class="fas fa-user"></i> Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre*" required>
+                        <input 
+                          type="text" 
+                          name="nombre" 
+                          id="nombre" placeholder="Ingresa tu nombre*" 
+                          v-model="formData.name"
+                        required
+                        >
 
                         <label for="correo" class="form-label"> <i class="fas fa-envelope"></i> Correo:</label>
-                        <input type="email" name="correo" id="correo" placeholder="Correo Corporativo*" required>
+                        <input 
+                          v-model="formData.email"
+                          type="email" name="correo" 
+                          id="correo" placeholder="Correo Corporativo*" 
+                        required>
 
 
                         <label for="nombre" class="form-label"> <i class="fab fa-whatsapp"></i> Teléfono:</label>
-                        <input  type="text" name="nombre" id="telefono" placeholder="Ingresa tu teléfono de contacto">
+                        <input  
+                          v-model="formData.telefono"
+                          type="text" 
+                          name="nombre" id="telefono" placeholder="Ingresa tu teléfono de contacto">
                         
-                        <button type="submit" id="enviar" class="btn btn-dark">Enviar</button>
+                        <button
+                          
+                          type="submit" 
+                          id="enviar" 
+                          class="btn btn-dark">Enviar
+                        </button>
                         <p id="mensaje-validacion"></p>
                     </form>
                     </div>
@@ -26,21 +44,81 @@
 </template>
 
 <script>
+export default{
+  data(){
+    return{
+      formData: new Object()
+    }
+  },methods:{
+    register(){
+      var data = {
+        name: this.formData.nombre,
+        email: this.formData.email,
+        telefono: this.formData.telefono
+      }
+     console.log(data); 
+    }
+
+  }
+  }
+
+
 </script>
 
 <style>
+
 
 #banner-principal{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     height: 990px;
-    background: url(../assets/img/carousel_principal/setup-balamrush.jpg);
+    /*background: url(../img/principal/banner_principalv3.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
-    background-attachment: fixed;
+    background-attachment: fixed;*/
+    animation: transiciones 40s infinite;
 }
+@keyframes transiciones{
+    0%{
+        background: url(../assets/img/carousel_principal/reloj_bulova.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+    40%{
+        background: url(../assets/img/carousel_principal/1d50.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+    60%{
+        background: url(../assets/img/carousel_principal/reloj_victorinox.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+    80%{
+        background: url(../assets/img/carousel_principal/setup-balamrush.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+    
+    100%{
+        background: url(../assets/img/carousel_principal/reloj_ck.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
+}
+
 
 #primario {
   width: 50%;

@@ -78,7 +78,7 @@ export default{
                 })
                 .catch(err => {
                     console.log(err.response);
-                    mensaje.text('Este correo ya fue registrado, espera a que te contactemos.');
+                    alert('Este correo ya fue registrado, espera a que te contactemos.');
                 });
 
         }
@@ -88,7 +88,6 @@ export default{
     greet(event) {
       event.preventDefault();
       this.register();
-      console.log("Michi")
     },
     resetForm () {
       this.formData.name = ''

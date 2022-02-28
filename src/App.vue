@@ -13,7 +13,7 @@ export default{
   name:'app', 
   methods: {
   clickButton(){
-    console.log("Michi")
+    
   },
   }
   }

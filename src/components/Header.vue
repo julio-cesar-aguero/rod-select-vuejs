@@ -60,11 +60,9 @@ export default {
   window.addEventListener("resize", this.myEventHandler);
   window.onscroll = () => {
   let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight > document.documentElement.offsetHeight -1;
-  console.log("max",bottomOfWindow)
   if (bottomOfWindow ) {
     // ...
     this.$router.go(1)
-    console.log("Michi");
   }
   }
 
@@ -83,8 +81,6 @@ export default {
     // your code for handling resize...
     
     if(this.show == false && screen.width > 739){
-      
-      console.log("max",screen.width)
       this.show = true;
     
     }

@@ -29,12 +29,12 @@
                           type="text" 
                           name="nombre" id="telefono" placeholder="Ingresa tu teléfono de contacto">
                         
-                        <button
-                          
-                          type="submit" 
+                        <button                          
+                          @click="greet"
                           id="enviar" 
                           class="btn btn-dark">Enviar
                         </button>
+
                         <p id="mensaje-validacion"></p>
                     </form>
                     </div>
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default{
   data(){
     return{
@@ -55,12 +56,48 @@ export default{
         name: this.formData.nombre,
         email: this.formData.email,
         telefono: this.formData.telefono
+      
       }
-     console.log(data); 
-    }
+      let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+      let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
+      
+      if(expdominio.test(data.email)){
+        console.log(data.email,"Ingresa un correo corporativo")
+      }else{
+        if(!exp.test(data.email)){
+          console.log(data.email,"Ingresa un correo valido")
+        }
+        else{
+          //enviarDatos(prospecto);
+                axios.post('https://sistemasrod.herokuapp.com/api/rodselect/prospecto',data)
+                .then(res => {
+                    console.log(res);
+                    alert(`Muchas felicidades ${data.name}, te haz registrado correctamente, espera a que te contactemos.`);
+                    this.resetForm()
+                    
+                })
+                .catch(err => {
+                    console.log(err.response);
+                    mensaje.text('Este correo ya fue registrado, espera a que te contactemos.');
+                });
 
-  }
-  }
+        }
+      }
+
+    },
+    greet(event) {
+      event.preventDefault();
+      this.register();
+      console.log("Michi")
+    },
+    resetForm () {
+      this.formData.name = ''
+      this.formData.email = '' 
+      this.formData.telefono = ''
+    } 
+  } 
+}
+  
 
 
 </script>

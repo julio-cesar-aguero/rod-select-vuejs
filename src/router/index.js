@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+function lazyLoad(view){
+  return() => import(`@/views/${view}.vue`)
+}
 
 Vue.use(VueRouter)
 

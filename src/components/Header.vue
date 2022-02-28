@@ -2,7 +2,7 @@
   <div class="container__header">
     <header id="header" :class="[show ? 'header-show' : 'header-hide']">
       <div class="container__logo">
-        <router-link to="/">
+        <a href="#primario">
           <img
             loading="lazy"
             id="logorod"
@@ -10,7 +10,7 @@
             alt="logo"
             title="Rod Select Logo"
           />
-        </router-link>
+        </a>
         <div class="container__menu-button" @click="show_hide">
           <i class="fas fa-bars"></i>
         </div>
@@ -19,22 +19,22 @@
         <nav>
           <ul class="ul-show" v-show="(show|showHeader)">
             <li>
-              <router-link class="link" to="/nosotros">Nosotros</router-link>
+              <a class="link" href="#nosotros">Nosotros</a>
             </li>
-            <li><router-link class="link" to="/marcas">Marcas</router-link></li>
+            <li><a class="link" href="#marcas">Marcas</a></li>
             <li>
-              <router-link class="link" to="/beneficios"
-                >Beneficios</router-link
+              <a class="link" href="#beneficios"
+                >Beneficios</a
               >
             </li>
             <li>
-              <router-link class="link" to="/proyectos"
-                >Proyectos Especiales</router-link
+              <a class="link" href="#proyectos_especiales"
+                >Proyectos Especiales</a
               >
             </li>
             <li>
-              <router-link class="link" to="/clientes"
-                >Nuestros Clientes</router-link
+              <a class="link" href="#clientes"
+                >Nuestros Clientes</a
               >
             </li>
           </ul>

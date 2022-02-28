@@ -22,35 +22,4 @@
   </div>
 </template>
 <style>
-
-#marcas{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 100px;
-}
-#marcas h2{
-    font-size: 40px;
-    margin-bottom: 40px;
-}
-#marcas img{
-    width: 20%;
-    
-    transition: all 300ms;
-}
-#marcas img:hover{
-    transform: scale(1.1);
-}
-#marcas .img-dist{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-#marcas .img-dist img{
-    width: 15%;
-    margin: 15px;
-}
-
 </style>

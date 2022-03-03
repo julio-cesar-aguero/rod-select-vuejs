@@ -33,8 +33,9 @@
                           id="enviar" 
                           class="btn btn-dark">Enviar
                         </button>
-
-                        <p id="mensaje-validacion">{{mensaje}}</p>
+                        <div class="message__container" v-show="showMensaje">
+                          <p id="mensaje-validacion"><i class="fas fa-exclamation-triangle"></i> {{mensaje}}</p>
+                        </div>
                     </form>
                     </div>
                 </div>
@@ -48,8 +49,8 @@ export default{
   data(){
     return{
       formData: new Object(),
-      mensaje: new String
-
+      mensaje: new String,
+      showMensaje : false
     }
   },methods:{
     register(){
@@ -64,16 +65,18 @@ export default{
       
       if(expdominio.test(data.email)){
         this.mensaje = "Ingresa un correo corporativo";
+        this.showMensaje = true;
       }else{
         if(!exp.test(data.email)){
           this.mensaje = "Ingresa un correo valido";
         }
         else{
           //enviarDatos(prospecto);
-                axios.post('https://sistemasrod.herokuapp.com/api/rodselect/prospecto',data)
+                axios.post('http://localhost:3000/api/rodselect/prospecto',data)
                 .then(res => {
                     console.log(res);
-                    this.mensaje=`Muchas felicidades ${data.name}, te haz registrado correctamente, espera a que te contactemos.`;
+                    this.mensaje=" Muchas felicidades "+data.email+", te haz registrado correctamente, espera a que te contactemos.";
+                    this.showMensaje = true;
                     this.resetForm()
                     
                 })
@@ -106,6 +109,7 @@ export default{
 
 
 #banner-principal{
+    font-weight: 200;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -167,7 +171,7 @@ export default{
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .formulario {
@@ -178,33 +182,42 @@ form {
   flex-flow: column;
   margin-top: 70px;
 }
-h1{
-  padding-bottom: 1em;
-}
 form label,
 form h1 {
-  font-size: 25px;
+  font-size: 20px;
   color: white;
+}
+.message__container{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #f2f2f21f, #11111198);
 }
 #mensaje-validacion,
 hr {
-  color: red;
+  color: white;
 }
 input::placeholder {
   color: white;
 }
 
 form input {
-  border-radius: 5px;
+  height: 40px;
+  padding: 1em;
+  font-weight: 600;
+  border-radius: 3px;
   border: 1px solid white;
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  font-size: 22px;
+  font-size: 18px;
 }
 label,
 input,
 button {
-  margin: 15px;
+  margin: 10px;
 }
 form button {
   width: 100px;
@@ -213,9 +226,11 @@ form button {
 
 .form__container {
   position: relative;
-  background-color: blue;
   width: 50vw;
   padding: 0 0.5em;
+}
+.message__container i{
+  color: yellow;
 }
 form {
   top: 50%;

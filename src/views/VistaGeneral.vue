@@ -531,13 +531,14 @@ export default {
 }
 
 #slider-proyectos {
+  width: 90vw;
   margin-top: 180px;
   padding: 1em 2em 5em 4em;
   display: grid;
   place-items: center;
 }
 #carouselExampleCaptions {
-  max-width: 65%;
+  max-width: 80%;
   border-radius: 10px;
   transition: all 300ms;
 }
@@ -730,7 +731,7 @@ export default {
     place-items: center;
   }
   #beneficios img {
-    width: 100%;
+    width: 100vw;
   }
 }
 
@@ -780,6 +781,12 @@ export default {
   #beneficios .lista-ordenada {
     background: rgba(240, 240, 240, 0.5);
     width: 90%;
+  }
+  #beneficios img{
+    width: 95%;
+  }
+  #carouselExampleCaptions{
+    max-width: 100%;
   }
   #clientes h2 {
     font-size: 30px;

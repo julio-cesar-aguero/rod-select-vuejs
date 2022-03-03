@@ -1,5 +1,5 @@
 <template>
-  <div class="container__header">
+  <div class="container__Cabecera">
     <header id="header" :class="[show ? 'header-show' : 'header-hide']">
       <div class="container__logo">
         <a href="#primario">
@@ -47,7 +47,7 @@
 <script>
 
 export default {
-  name: 'Header',
+  name: 'Cabecera',
   data(){
     return{
       show: true,
@@ -109,7 +109,7 @@ header {
     rgba(204, 29, 29, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   transition: cubic-bezier(0.23, 1, 0.32, 1) 500ms;
 }
-.container__header {
+.container__Cabecera {
   width: 100%;
   display: flex;
   justify-content: space-around;

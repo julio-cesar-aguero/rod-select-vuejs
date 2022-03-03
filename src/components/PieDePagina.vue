@@ -1,5 +1,5 @@
 <template>
-<div class="footer__container">
+<div class="PieDePagina__container">
 <footer id="pie">
             <div id="encabezado-pie">
                 <h3>Cóntactanos con un click</h3>
@@ -34,12 +34,12 @@
 
 <script>
 export default {
-name: 'Footer'
+name: 'PieDePagina'
 }
 </script>
 
 <style>
-.footer__container{
+.PieDePagina__container{
     width: 100%;
     height: 100px;
     bottom: 0;

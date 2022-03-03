@@ -1,10 +1,10 @@
 <template>
   <div class="contenedor">
-    <Header></Header>    
+    <Cabecera></Cabecera>    
     <div class="offset">
        <router-view></router-view>
     </div>
-    <Footer></Footer>    
+    <PieDePagina />
   </div>
 </template>
 

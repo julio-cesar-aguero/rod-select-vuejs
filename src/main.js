@@ -7,14 +7,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
-import header from './components/Header'
-import footer from './components/Footer'
-
+import Cabecera from './components/Cabecera'
+import PieDePagina from './components/PieDePagina'
 
 
-Vue.component('Header', header)
-Vue.component('Footer', footer)
+
+Vue.component('Cabecera', Cabecera)
+Vue.component('PieDePagina', PieDePagina)
 Vue.config.productionTip = false
 
 import vueScrollBehavior from 'vue-scroll-behavior'

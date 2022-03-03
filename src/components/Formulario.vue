@@ -14,7 +14,6 @@
                           v-model="formData.name"
                         required
                         >
-
                         <label for="correo" class="form-label"> <i class="fas fa-envelope"></i> Correo:</label>
                         <input 
                           v-model="formData.email"
@@ -35,7 +34,7 @@
                           class="btn btn-dark">Enviar
                         </button>
 
-                        <p id="mensaje-validacion"></p>
+                        <p id="mensaje-validacion">{{mensaje}}</p>
                     </form>
                     </div>
                 </div>
@@ -48,7 +47,9 @@ import axios from 'axios'
 export default{
   data(){
     return{
-      formData: new Object()
+      formData: new Object(),
+      mensaje: new String
+
     }
   },methods:{
     register(){
@@ -62,23 +63,23 @@ export default{
       let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
       
       if(expdominio.test(data.email)){
-        console.log(data.email,"Ingresa un correo corporativo")
+        this.mensaje = "Ingresa un correo corporativo";
       }else{
         if(!exp.test(data.email)){
-          console.log(data.email,"Ingresa un correo valido")
+          this.mensaje = "Ingresa un correo valido";
         }
         else{
           //enviarDatos(prospecto);
                 axios.post('https://sistemasrod.herokuapp.com/api/rodselect/prospecto',data)
                 .then(res => {
                     console.log(res);
-                    alert(`Muchas felicidades ${data.name}, te haz registrado correctamente, espera a que te contactemos.`);
+                    this.mensaje=`Muchas felicidades ${data.name}, te haz registrado correctamente, espera a que te contactemos.`;
                     this.resetForm()
                     
                 })
                 .catch(err => {
                     console.log(err.response);
-                    alert('Este correo ya fue registrado, espera a que te contactemos.');
+                    this.mensaje='Este correo ya fue registrado, espera a que te contactemos.';
                 });
 
         }
@@ -187,7 +188,7 @@ form h1 {
 }
 #mensaje-validacion,
 hr {
-  color: white;
+  color: red;
 }
 input::placeholder {
   color: white;

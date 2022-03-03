@@ -184,7 +184,7 @@ form {
 }
 form label,
 form h1 {
-  font-size: 20px;
+  font-size: 15px;
   color: white;
 }
 .message__container{
@@ -207,12 +207,12 @@ input::placeholder {
 form input {
   height: 40px;
   padding: 1em;
-  font-weight: 600;
+  font-weight: 100;
   border-radius: 3px;
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.726);
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  font-size: 18px;
+  font-size: 15px;
 }
 label,
 input,

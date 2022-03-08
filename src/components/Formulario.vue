@@ -207,12 +207,12 @@ input::placeholder {
 form input {
   height: 40px;
   padding: 1em;
-  font-weight: 100;
-  border-radius: 3px;
+  font-weight: 700;
+  border-radius: 2px;
   border: 1px solid rgba(255, 255, 255, 0.726);
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  font-size: 15px;
+  font-size: 12px;
 }
 label,
 input,

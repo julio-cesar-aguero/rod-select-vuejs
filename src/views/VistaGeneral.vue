@@ -337,6 +337,7 @@ export default {
 </script>
 
 <style>
+
 #nosotros {
   display: grid;
   grid-template-areas: "imagen desc";

@@ -153,10 +153,10 @@ nav ul li {
   list-style: none;
 }
 .link {
-  font-weight: 200;
-  font-size: 23px;
+  font-weight: 500;
+  font-size: 22px;
   color: black;
-  transition: all 400ms;
+  transition: color cubic-bezier(0.075, 0.82, 0.165, 1) 400ms;
 }
 .link:hover {
   font-size: 24px;

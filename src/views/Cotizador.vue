@@ -1,5 +1,6 @@
 <template>
   <div class="general__section">
+    <!-- pagina 1 -->
     <section id="#cotizador">
       <div class="cotizador__portada">
         <div class="bacground-image__container">
@@ -18,12 +19,13 @@
             presupuesto.
           </p>
           <div class="buttons">
-            <a class="next-button" href="#cotizador-2">E-mail corporativo</a>
-            <button>Iniciar</button>
+            <a class="next-button">E-mail corporativo</a>
+            <a class="next-button" href="#cotizador-2">Iniciar</a>
           </div>
         </div>
       </div>
     </section>
+    <!-- pagina 2 -->
     <section id="cotizador-2">
       <div class="container__cotizador-2">
         <h2>¿Cual es tu presupuesto?</h2>
@@ -62,11 +64,12 @@
           </div>
         </div>
         <div class="contact__container">
-          <h2>¿Quieres desarrollar un proyecto personalizado?</h2>
+          <h3>¿Quieres desarrollar un proyecto personalizado?</h3>
           <button class="white-button">Contacta un asesor</button>
         </div>
       </div>
     </section>
+    <!-- pagina 3 -->
     <section id="cotizador-3">
       <div class="container__cotizador-2">
         <h2>¿Para cuántas personas es este regalo?</h2>
@@ -92,11 +95,12 @@
           </div>
         </div>
         <div class="contact__container">
-          <h2>¿Quieres desarrollar un proyecto personalizado?</h2>
+          <h3>¿Quieres desarrollar un proyecto personalizado?</h3>
           <button class="white-button">Contacta un asesor</button>
         </div>
       </div>
     </section>
+    <!-- pagina 4 -->
     <section id="cotizador-4">
       <div class="date__container">
         <h2>¿En qué fecha entregaras este regalo?</h2>
@@ -104,10 +108,11 @@
         <button class="white-button">Siguiente</button>
       </div>
       <div class="contact__container">
-        <h2>¿Quieres atención personalizada?</h2>
+        <h3>¿Quieres atención personalizada?</h3>
         <button class="white-button">Contacta un asesor</button>
       </div>
     </section>
+    <!-- pagina 5 -->
     <section id="cotizador-5">
       <div class="container__cotizador-2">
         <h2>¿Cual es tu presupuesto?</h2>
@@ -121,7 +126,6 @@
             <img class="box-img" src="../assets/img/icon/people.png" alt="" />
             <span>Clientes</span>
           </div>
-
           <div class="box">
             <img class="box-img" src="../assets/img/icon/people.png" alt="" />
             <span>Socios</span>
@@ -133,23 +137,24 @@
           </div>
         </div>
         <div class="contact__container">
-          <h2>¿Quieres desarrollar un proyecto personalizado?</h2>
-          <button class="next-button">Contacta un asesor</button>
+          <h3>¿Quieres desarrollar un proyecto personalizado?</h3>
+          <button class="white-button">Contacta un asesor</button>
         </div>
       </div>
     </section>
+    <!-- pagina 6 -->
     <section id="cotizador-6">
       <div class="column__left">
         <div class="contact__container">
-          <h2>¿Quieres desarrollar un proyecto personalizado?</h2>
+          <h2>¿Qué tipos de regalos quieres dar?</h2>
           <p>
             Encuentra una gran variedad de regalos para otorgar una experiencia
             inolvidable y reforzar tu imagen corporativa.
           </p>
         </div>
         <div class="contact__container">
-          <h2>¿Quieres desarrollar un proyecto personalizado?</h2>
-          <button>Contacta un asesor</button>
+          <h2>Quiero desarrollar mi propio regalo</h2>
+          <button class="white-button">Contacta un asesor</button>
         </div>
       </div>
       <div class="column__right">
@@ -166,8 +171,9 @@
         </div>
       </div>
     </section>
+    <!-- Pagina 7 -->
     <section id="cotizador-7">
-      <span>¡MUCHAS GRACIAS!</span>
+      <span>¡MUCHAS GRACIAS POR LLEGAR HASTA AQUÍ!</span>
       <h3>
         Apoyanos dejando tus datos para hacerte llegar tu cotizacion
         personalizada
@@ -184,17 +190,18 @@
           <input type="text" name="phone" />
           <label for="empresa">Empresa:</label>
           <input type="text" name="empresa" />
-
           <label for="empresa"
             >¿Deseas agregar una personalizacion? Cuentanos
           </label>
           <input type="text" name="empresa" />
+          <button type="submit" class="white-button">Enviar</button>
         </form>
       </div>
     </section>
+    <!-- Pagina 8 -->
     <section id="cotizador-8">
       <div class="column__left">
-        <h2>¡FELICIDADES!</h2>
+        <h2>¡Felicidades!</h2>
         <p>
           Cada vez estás más cerca de iniciar contu gran regalo corporativo y
           otorgar una experiencia única a tus clientes, colaboradores y socios.
@@ -247,14 +254,18 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #f2f2f2;
 }
 section {
   width: 100%;
   margin-top: 100px;
+}
+h3 {
+  font-size: 19px;
+  font-weight: 400;
 }
 /* pagina 1 */
 #cotizador {
@@ -301,11 +312,11 @@ section {
   flex-direction: column;
   align-items: center;
 }
-.buttons button,
-.next-button {
+.buttons .next-button {
   background-color: white;
   color: black;
   padding: 0.6em;
+  margin: 0.9em;
   border: none;
   border-radius: 5px;
   text-decoration: none;
@@ -358,7 +369,7 @@ section {
   font-size: 1.2em;
 }
 .contact__container {
-  font-size: 16px;
+  font-size: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -395,15 +406,14 @@ section {
   padding: 0.6em 1.4em;
 }
 .box-boxs {
-  background-color: red;
   width: 360px;
   height: 360px;
   display: grid;
   align-items: center;
-
   grid-template-columns: repeat(3, 3fr);
 }
 .box-child {
+  background-color: red;
   width: 100px;
   height: 100px;
   margin: 0 auto;
@@ -414,10 +424,26 @@ section {
   flex-direction: column;
   align-items: center;
 }
+#cotizador-7 span {
+  font-size: 20px;
+  font-weight: 700;
+}
+#cotizador-7 h3 {
+  font-size: 23px;
+  font-weight: 400;
+}
 .container__form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  color: black;
+  width: 400px;
+  margin: 0 auto;
+}
+form {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   color: black;
   width: 400px;
@@ -433,20 +459,25 @@ section {
 }
 /* 8 */
 #cotizador-8 {
-  background-color: blue;
   display: flex;
+  align-items: center;
   padding: 3.5em;
 }
 #cotizador-8 .column__left {
   margin: 1em;
   padding: 1.4em;
-  background-color: yellow;
 }
-#cotizador-8 .column__left h2 {
-    font-weight: 800;
-
+#cotizador-8 .column__right {
+  padding: 1.4em;
+  height: 50%;
+  border-radius: 2px;
+  background-color: rgba(110, 110, 110, 0.3);
+}
+#cotizador-8 .column__left h2,
+h3 {
+  font-weight: 600;
 }
 #cotizador-8 .column__left p {
-    font-weight: 100;
+  font-weight: 300;
 }
 </style>

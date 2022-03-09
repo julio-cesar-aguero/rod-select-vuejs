@@ -2,7 +2,7 @@
   <div class="container__Cabecera">
     <header id="header" :class="[show ? 'header-show' : 'header-hide']">
       <div class="container__logo">
-        <a href="#primario">
+        <a @click="to('/')">
           <img
             loading="lazy"
             id="logorod"
@@ -19,6 +19,10 @@
         <nav>
           <ul class="ul-show" v-show="(show|showHeader)">
             <li>
+              <a class="link" @click="to('/cotizador')">Cotiza</a>
+            </li>
+            <div class="menu-show" v-show="showMenu">
+              <li>
               <a class="link" href="#nosotros">Nosotros</a>
             </li>
             <li><a class="link" href="#marcas">Marcas</a></li>
@@ -29,14 +33,16 @@
             </li>
             <li>
               <a class="link" href="#proyectos_especiales"
-                >Proyectos Especiales</a
+                >Proyectos</a
               >
             </li>
             <li>
               <a class="link" href="#clientes"
-                >Nuestros Clientes</a
+                >Clientes</a
               >
             </li>
+            </div>
+            
           </ul>
         </nav>
       </div>
@@ -51,7 +57,8 @@ export default {
   data(){
     return{
       show: true,
-      showHeader:true
+      showHeader:true,
+      showMenu: true
     }
   },
   
@@ -77,6 +84,10 @@ export default {
     this.show =!this.show;
     this.showHeader = this.show;
   },
+  to(ruta){
+    this.$router.push(ruta)
+  }
+  ,
   myEventHandler(e) {
     // your code for handling resize...
     
@@ -90,7 +101,7 @@ export default {
   }
 </script>
 
-<style>
+<style scoped>
 header {
   width: 100%;
   height: 100px;
@@ -140,7 +151,7 @@ header {
   width: 100%;
 }
 
-nav ul {
+nav ul,.menu-show {
   height: 100%;
   display: flex;
   justify-content: center;
@@ -152,6 +163,7 @@ nav ul li {
   margin: 0px 10px;
   list-style: none;
 }
+
 .link {
   font-weight: 500;
   font-size: 22px;
@@ -173,9 +185,12 @@ nav ul li {
     flex-direction: column;
     height: 150px;
   }
+  .menu-show{
+    
+  }
 }
 @media (max-width: 845px) {
-  nav ul {
+  nav ul{
     margin: 0 auto;
     width: 70%;
     padding-top: 0.5em;
@@ -183,7 +198,7 @@ nav ul li {
 }
 @media (max-width: 739px) {
   header {
-    max-height: 300px;
+    height: auto;
   }
   .container__logo {
     width: 100%;
@@ -196,7 +211,7 @@ nav ul li {
     justify-content: center;
     align-items: center;
   }
-  nav ul {
+  nav ul,.menu-show{
     padding-top: 0.2em;
     flex-direction: column;
   }

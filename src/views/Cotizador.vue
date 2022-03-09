@@ -3,13 +3,6 @@
     <!-- pagina 1 -->
     <section id="#cotizador">
       <div class="cotizador__portada">
-        <div class="bacground-image__container">
-          <img
-            class="background-image"
-            src="../assets/img/cotizador/reloj.png"
-            alt=""
-          />
-        </div>
         <div class="card__information">
           <small>Inicia a crear tu</small>
           <h2>regalo corporativo ideal</h2>
@@ -22,6 +15,13 @@
             <a class="next-button">E-mail corporativo</a>
             <a class="next-button" href="#cotizador-2">Iniciar</a>
           </div>
+        </div>
+        <div class="bacground-image__container">
+          <img
+            class="background-image"
+            src="../assets/img/cotizador/reloj.png"
+            alt=""
+          />
         </div>
       </div>
     </section>
@@ -253,15 +253,16 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 body {
   font-family: "Roboto", sans-serif;
   background-color: #f2f2f2;
 }
-section {
+.general__section{
   width: 100%;
-  margin-top: 100px;
+  padding-top: 50px;
+  overflow: hidden;
 }
 h3 {
   font-size: 19px;
@@ -273,15 +274,16 @@ h3 {
   margin-top: 100px;
 }
 .cotizador__portada {
+  
   display: grid;
   background-color: #f2f2f2;
-  margin-top: 50px;
+  margin-top: 90px;
   position: relative;
+  margin-bottom: 300px;
 }
 .background-image {
-  position: absolute;
+  
   width: 90%;
-  height: 90vh;
   background-color: transparent;
 }
 .card__information {
@@ -292,6 +294,7 @@ h3 {
   padding: 2em;
   height: 90vh;
   z-index: 10;
+  position: absolute;
 }
 .card__information small {
   font-size: 2em;
@@ -432,6 +435,7 @@ h3 {
   font-size: 23px;
   font-weight: 400;
 }
+/*
 .container__form {
   display: flex;
   flex-direction: column;
@@ -479,5 +483,47 @@ h3 {
 }
 #cotizador-8 .column__left p {
   font-weight: 300;
+}
+
+/* responsive */
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 845px) {
+   .card__information{
+    width: 90%;
+    padding: 2.2em;
+    margin: 2.3em;
+    font-size: 0.9em;
+  }
+  .cotizador__portada{
+    margin-bottom: 900px;
+  }
+  .background-image{
+    opacity: 0.7;
+  }
+  
+}
+@media (max-width: 739px) {
+  .cotizador__portada{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 300px;
+  }
+  .card__information{
+    width: 90%;
+    padding: 2.2em;
+    margin: 2.3em;
+    font-size: 0.8em;
+  }
+  .background-image{
+    width: 100vw;
+    height: 70vh;
+    transform: scale(1);
+  }
+  
 }
 </style>

@@ -344,7 +344,8 @@ h3 {
 .cards {
   width: 95%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  justify-self: center;
+  grid-template-columns: repeat(2, 2fr);
   margin: 4em 2em;
 }
 .box {

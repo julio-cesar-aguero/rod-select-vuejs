@@ -173,11 +173,14 @@
     </section>
     <!-- Pagina 7 -->
     <section id="cotizador-7">
-      <span>¡MUCHAS GRACIAS POR LLEGAR HASTA AQUÍ!</span>
-      <h3>
-        Apoyanos dejando tus datos para hacerte llegar tu cotizacion
-        personalizada
-      </h3>
+      <div class="form__information">
+        <span>¡MUCHAS GRACIAS POR LLEGAR HASTA AQUÍ!</span>
+        <p>
+          Apoyanos dejando tus datos para hacerte llegar tu cotizacion
+          personalizada
+        </p>
+      </div>
+
       <div class="container__form">
         <form>
           <label for="name">Nombre:</label>
@@ -259,9 +262,10 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #f2f2f2;
 }
-.general__section{
+.general__section section {
+  background-color: #f2f2f2;
   width: 100%;
-  padding-top: 50px;
+  padding-top: 150px;
   overflow: hidden;
 }
 h3 {
@@ -274,7 +278,6 @@ h3 {
   margin-top: 100px;
 }
 .cotizador__portada {
-  
   display: grid;
   background-color: #f2f2f2;
   margin-top: 90px;
@@ -282,7 +285,6 @@ h3 {
   margin-bottom: 300px;
 }
 .background-image {
-  
   width: 90%;
   background-color: transparent;
 }
@@ -338,15 +340,16 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding: 1em;
+  justify-content: center;
+  width: 100vw;
+  padding: 0.5em;
 }
 .cards {
-  width: 95%;
+  width: 100%;
   display: grid;
-  justify-self: center;
-  grid-template-columns: repeat(2, 2fr);
-  margin: 4em 2em;
+  grid-template-columns: repeat(4, auto);
+  margin: 1em 0.5em;
+  padding: 1em 1em;
 }
 .box {
   display: flex;
@@ -357,7 +360,7 @@ h3 {
   width: 240px;
   height: 300px;
   transition: all 0.3s;
-  padding: 3em;
+  padding: 2em;
   border-radius: 2px 80px 2px;
 }
 .box:hover {
@@ -366,7 +369,7 @@ h3 {
 .box-img {
   width: 100px;
   height: 100px;
-  margin: 2em;
+  margin-top: 2em;
 }
 .box span {
   font-weight: 600;
@@ -389,10 +392,9 @@ h3 {
   margin: 1.5em;
 }
 #cotizador-6 {
-  height: 100vh;
   display: flex;
   justify-content: center;
-
+  flex-direction: row;
   padding: 4em 2em;
 }
 .column__left,
@@ -426,17 +428,24 @@ h3 {
 #cotizador-7 {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 #cotizador-7 span {
   font-size: 20px;
   font-weight: 700;
 }
-#cotizador-7 h3 {
-  font-size: 23px;
-  font-weight: 400;
+#cotizador-7 p {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
 }
-/*
+.form__information{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .container__form {
   display: flex;
   flex-direction: column;
@@ -448,6 +457,7 @@ h3 {
 }
 form {
   display: flex;
+  flex-flow: column;
   flex-direction: column;
   justify-content: center;
   color: black;
@@ -459,12 +469,19 @@ form {
   font-weight: 800;
 }
 .container__form form input {
-  background-color: white;
-  border-radius: 100px;
+  height: 40px;
+  padding: 1em;
+  font-weight: 700;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.726);
+  background: rgba(228, 228, 228, 0.911);
+  color: white;
+  font-size: 12px;
 }
 /* 8 */
 #cotizador-8 {
   display: flex;
+  flex-direction: row;
   align-items: center;
   padding: 3.5em;
 }
@@ -488,25 +505,35 @@ h3 {
 
 /* responsive */
 @media (max-width: 1200px) {
-  
+  .cards {
+    grid-template-columns: repeat(2, 2fr);
+    align-self: center;
+  }
+  .box {
+    width: 200px;
+    height: 260px;
+    margin: 0 auto;
+  }
+  .box span {
+    font-size: 0.9em;
+  }
 }
 @media (max-width: 845px) {
-   .card__information{
+  .card__information {
     width: 90%;
     padding: 2.2em;
     margin: 2.3em;
     font-size: 0.9em;
   }
-  .cotizador__portada{
+  .cotizador__portada {
     margin-bottom: 900px;
   }
-  .background-image{
+  .background-image {
     opacity: 0.7;
   }
-  
 }
 @media (max-width: 739px) {
-  .cotizador__portada{
+  .cotizador__portada {
     margin-top: 150px;
     display: flex;
     flex-direction: column;
@@ -514,17 +541,39 @@ h3 {
     align-items: center;
     margin-bottom: 300px;
   }
-  .card__information{
+  .card__information {
     width: 90%;
     padding: 2.2em;
     margin: 2.3em;
     font-size: 0.8em;
   }
-  .background-image{
+  .background-image {
     width: 100vw;
     height: 70vh;
     transform: scale(1);
   }
-  
+  #cotizador-6 {
+    display: flex;
+    flex-direction: column;
+  }
+  .column__left,
+  .column__right {
+    width: 100%;
+  }
+  #cotizador-8 {
+    flex-direction: column;
+  }
+}
+@media (max-width: 520px) {
+  .cards {
+    grid-template-columns: repeat(1, 4fr);
+  }
+  .box {
+    width: 160px;
+    height: 200px;
+  }
+  .box span {
+    font-size: 0.7em;
+  }
 }
 </style>

@@ -136,7 +136,7 @@ h3 {
     margin-bottom: 900px;
   }
   .background-image {
-    opacity: 0.7;
+    opacity: 0.5;
   }
 }
 @media (max-width: 739px) {
@@ -155,9 +155,9 @@ h3 {
     font-size: 0.8em;
   }
   .background-image {
-    width: 100vw;
-    height: 70vh;
-    transform: scale(1);
+    max-width: 40vw;
+    max-height: 20vh;
+    transform: scale(2.8);
   }
 }
 

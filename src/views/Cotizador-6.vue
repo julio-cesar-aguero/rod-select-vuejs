@@ -1,6 +1,5 @@
 <template>
   <div class="general__section">
-
     <!-- pagina 6 -->
     <section id="cotizador-6">
       <div class="column__left">
@@ -18,91 +17,15 @@
       </div>
       <div class="column__right">
         <div class="box-boxs">
-          <div class="box-child"></div>
-          <div class="box-child"></div>
-          <div class="box-child"></div>
-          <div class="box-child"></div>
-          <div class="box-child"></div>
-          <div class="box-child"></div>
-          <div class="box-child"></div>
-          <div class="box-child"></div>
-          <div class="box-child"></div>
-        </div>
-      </div>
-    </section>
-    <!-- Pagina 7 -->
-    <section id="cotizador-7">
-      <div class="form__information">
-        <span>¡MUCHAS GRACIAS POR LLEGAR HASTA AQUÍ!</span>
-        <p>
-          Apoyanos dejando tus datos para hacerte llegar tu cotizacion
-          personalizada
-        </p>
-      </div>
-
-      <div class="container__form">
-        <form>
-          <label for="name">Nombre:</label>
-          <input type="text" name="name" />
-          <label for="lastname">Apellido:</label>
-          <input type="text" name="lastname" />
-          <label for="email">E-mail corporativo:</label>
-          <input type="text" name="email" />
-          <label for="phone">Telefono:</label>
-          <input type="text" name="phone" />
-          <label for="empresa">Empresa:</label>
-          <input type="text" name="empresa" />
-          <label for="empresa"
-            >¿Deseas agregar una personalizacion? Cuentanos
-          </label>
-          <input type="text" name="empresa" />
-          <button type="submit" class="white-button">Enviar</button>
-        </form>
-      </div>
-    </section>
-    <!-- Pagina 8 -->
-    <section id="cotizador-8">
-      <div class="column__left">
-        <h2>¡Felicidades!</h2>
-        <p>
-          Cada vez estás más cerca de iniciar contu gran regalo corporativo y
-          otorgar una experiencia única a tus clientes, colaboradores y socios.
-        </p>
-        <h3>¿Por qué son importantes los regalos corporativos?</h3>
-        <ul>
-          <li>Mejora la imagen de la empresa.</li>
-
-          <li>Genera un mayor compromiso de parte de los trabajadores.</li>
-
-          <li>Mayor rendimiento laboral.</li>
-
-          <li>Ayuda en la genración de nuevas ídeas.</li>
-
-          <li>Menores inconvenientes laborales.</li>
-
-          <li>Mayor competitividad empresarial.</li>
-
-          <li>Menos fugas de cerebros.</li>
-        </ul>
-      </div>
-      <div class="column__right">
-        <img src="" alt="" />
-        <div class="advice__container">
-          <h3>¿Sabias que?</h3>
-          <ul>
-            <li>
-              80% de los compradores indican que el dar incentivos a sus
-              trabajadores
-            </li>
-            <li>
-              56% de los compradores indican que el dar un regalo personalizado
-              ayudaria en el posicionamiento e imagen de su marca.
-            </li>
-            <li>
-              Más del 60% de los consumidores agradecen recibir un obsequio
-              funcional para su uso diario
-            </li>
-          </ul>
+          <div 
+          @click="selectArticle"
+            class="box-child" 
+            v-for="(item,index) in boxs" :key="index">
+            <div class="image-box">
+              <img src="" alt="box-image">
+            </div>
+            <span>{{item}}</span>
+          </div>
         </div>
       </div>
     </section>
@@ -111,12 +34,37 @@
 
 <script>
 export default {
-
+  name: 'Cotizador-6',
+  data(){
+    return{
+      boxs : {
+        1 : 'Joyería personalizada',
+        2 : 'Artículos de Piel',
+        3 : 'Relojes',
+        4 : 'Boligrafos',
+        5 : 'Pines Personalizados',
+        6 : 'Mochilas y Portafolios',
+        7 : 'Articulos Gamer',
+        8 : 'Reconocimientos',
+        9 : 'Otros'
+      }
+    }
+    
+  },
+  methods:{
+    selectArticle(){
+      console.log("article")
+      this.$router.push('/Cotizador-7');
+    }
+  }
 }
 </script>
 
 <style scoped>
-
+.general__section{
+  width: 100vw;
+  height: 100%;
+}
 .cards {
   width: 100%;
   display: grid;
@@ -170,6 +118,8 @@ export default {
   margin: 1.5em;
 }
 #cotizador-6 {
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -190,17 +140,33 @@ export default {
   padding: 0.6em 1.4em;
 }
 .box-boxs {
-  width: 360px;
-  height: 360px;
+  width: 500px;
+  height: 500px;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(3, 3fr);
+  margin-bottom: 100px;
 }
 .box-child {
+  text-align: center;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-box{
   background-color: red;
   width: 100px;
   height: 100px;
   margin: 0 auto;
+}
+.box-child span{
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 15px;
+  height: 5px;
 }
 /* 7 */
 #cotizador-7 {
@@ -262,6 +228,9 @@ form {
   flex-direction: row;
   align-items: center;
   padding: 3.5em;
+}
+.column__left,.column__right{
+  width: 50%;
 }
 #cotizador-8 .column__left {
   margin: 1em;

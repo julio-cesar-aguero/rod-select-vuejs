@@ -234,10 +234,7 @@ h3 {
     display: flex;
     flex-direction: column;
   }
-  .column__left,
-  .column__right {
-    width: 100%;
-  }
+  
   #cotizador-8 {
     flex-direction: column;
   }

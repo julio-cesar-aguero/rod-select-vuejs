@@ -71,7 +71,7 @@ export default {
         }
         else{
           //enviarDatos(prospecto);
-                axios.post('http://localhost:3000/api/rodselect/prospecto',data)
+                axios.post('http://localhost:3000/api/rodselect/cotizacion',data)
                 .then(res => {
                     console.log(res);
                     this.mensaje=" Muchas felicidades "+data.email+", te haz registrado correctamente, espera a que te contactemos.";

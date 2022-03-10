@@ -94,6 +94,10 @@ export default {
   padding: 0.5em;
   
 }
+.container__cotizador-2 h2{
+  font-size: 1em;
+  font-weight: 800;
+}
 .cards {
   width: 100%;
   display: grid;

@@ -49,7 +49,10 @@
     </section>
     <section>
       <div class="to-home">
-        <i class="fa-solid fa-angle-up"></i>
+        <i 
+          class="fa-solid fa-angle-up"
+          @click="handleToHome"
+        ></i>
       </div>
     </section>
   </div>
@@ -58,6 +61,12 @@
 <script>
 export default {
 
+  name: 'Cotizador-8',
+  methods:{
+    handleToHome(){
+      this.$router.push('./cotizador')
+    }
+  }
 }
 </script>
 

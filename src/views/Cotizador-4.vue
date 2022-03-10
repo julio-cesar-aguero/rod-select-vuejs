@@ -4,11 +4,10 @@
     <section id="cotizador-4">
       <div class="date__container">
         <h2>¿En qué fecha entregaras este regalo?</h2>
-        <button class="white-button">Selecciona una fecha</button>
-        <button 
-        class="white-button"
-        @click="handleOption(5)"
-        >Siguiente</button>
+        <div>
+          <date-picker v-model="time1" valueType="format"></date-picker>
+        </div>
+        <button class="white-button" @click="handleOption(5)">Siguiente</button>
       </div>
       <div class="contact__container">
         <h3>¿Quieres atención personalizada?</h3>
@@ -19,25 +18,28 @@
 </template>
 
 <script>
+import DatePicker from "vue2-datepicker";
+import "vue2-datepicker/index.css";
 export default {
-
-  name: 'Cotizador-4',
-  data(){
-    return{
-        option: true
-    }
+  name: "Cotizador-4",
+  components: { DatePicker },
+  data() {
+    return {
+      option: true,
+      time1: null,
+    };
   },
-  methods:{
-    handleOption(option){
-      console.log("Option selected",option)
-      this.$router.push('./cotizador-5')
-    }
-  }
-}
+  methods: {
+    handleOption(option) {
+      console.log("Option selected", option);
+      this.$router.push("./cotizador-5");
+    },
+  },
+};
 </script>
 
 <style scoped>
-.general__section{
+.general__section {
   background-color: #f2f2f2;
 }
 /* button */
@@ -89,7 +91,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.contact__container h3{
+.contact__container h3 {
   font-size: 1em;
   margin: 1.7em;
 }
@@ -152,7 +154,7 @@ export default {
   font-weight: 500;
   text-align: center;
 }
-.form__information{
+.form__information {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,18 +217,18 @@ h3 {
   font-weight: 300;
 }
 
-  #cotizador-6 {
-    display: flex;
-    flex-direction: column;
-  }
-  .column__left,
-  .column__right {
-    width: 100%;
-  }
-  #cotizador-8 {
-    flex-direction: column;
-  }
-  /* responsive */
+#cotizador-6 {
+  display: flex;
+  flex-direction: column;
+}
+.column__left,
+.column__right {
+  width: 100%;
+}
+#cotizador-8 {
+  flex-direction: column;
+}
+/* responsive */
 @media (max-width: 1200px) {
   .cards {
     grid-template-columns: repeat(2, 2fr);
@@ -253,7 +255,4 @@ h3 {
     font-size: 0.7em;
   }
 }
-
-
-
 </style>

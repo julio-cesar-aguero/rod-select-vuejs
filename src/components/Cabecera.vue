@@ -58,7 +58,7 @@ export default {
     return{
       show: true,
       showHeader:true,
-      showMenu: true
+      showMenu: false
     }
   },
   
@@ -85,7 +85,15 @@ export default {
     this.showHeader = this.show;
   },
   to(ruta){
-    this.$router.push(ruta)
+    if(ruta=='/cotizador'){
+      if(this.showMenu == true) this.showMenu = false;
+      console.log("Michi ruta",ruta);
+      this.$router.push(ruta)
+    }else{
+      if(this.showMenu == false) this.showMenu = true;
+      this.$router.push(ruta);
+    }
+
   }
   ,
   myEventHandler(e) {
@@ -118,7 +126,7 @@ header {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(204, 29, 29, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  transition: cubic-bezier(0.23, 1, 0.32, 1) 500ms;
+  transition: cubic-bezier(0.23, 1, 0.32, 1) 300ms;
 }
 .container__Cabecera {
   width: 100%;
@@ -135,14 +143,14 @@ header {
 .container__menu-button {
   color: black;
   width: 45px;
-  height: 50px;
+  height: 30px;
   font-size: 22px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  transition: background 500ms;
+  transition: background 300ms;
   display: none;
 }
 
@@ -185,9 +193,7 @@ nav ul li {
     flex-direction: column;
     height: 150px;
   }
-  .menu-show{
-    
-  }
+  
 }
 @media (max-width: 845px) {
   nav ul{
@@ -216,10 +222,10 @@ nav ul li {
     flex-direction: column;
   }
   .header-show {
-    height: 300px;
+    height: auto;
   }
   .header-hide {
-    height: 100px;
+    height: 90px;
   }
   .ul-show {
     display: flex;

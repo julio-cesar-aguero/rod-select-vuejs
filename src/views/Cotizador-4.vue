@@ -37,6 +37,19 @@ export default {
 </script>
 
 <style scoped>
+.general__section{
+  background-color: #f2f2f2;
+}
+/* button */
+
+.white-button {
+  background-color: white;
+  color: black;
+  padding: 0.6em 0.9em;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+}
 
 .cards {
   width: 100%;

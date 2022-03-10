@@ -47,6 +47,11 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="to-home">
+        <i class="fa-solid fa-angle-up"></i>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -91,7 +96,23 @@ h3 {
   margin: 1.2em;
 }
 .column__right{
-  max-height: 400px;
+  max-height: 300px;
+}
+
+.to-home{
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.to-home{
+  cursor: pointer;
+  padding: 2em;
+  font-size: 2.7em;
+}
+.to-home:hover{
+  
 }
   /* responsive */
 @media (max-width: 1200px) {
@@ -108,6 +129,7 @@ h3 {
     font-size: 0.9em;
   }
 }
+
 @media (max-width: 739px) {
   #cotizador-8{
     flex-direction: column;

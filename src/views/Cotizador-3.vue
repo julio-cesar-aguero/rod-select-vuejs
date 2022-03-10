@@ -10,7 +10,7 @@
           @click="handleOption(1)"
           >
             <img class="box-img" src="../assets/img/icon/people.png" alt="" />
-            <span>Colaboradores</span>
+            <span>DE 1 A 10,000</span>
           </div>
 
           <div 
@@ -73,7 +73,9 @@ export default {
   border-radius: 10px;
   font-weight: 800;
 }
-
+.general__section{
+  background-color: #f2f2f2;
+}
 /* pagina 2 */
 .container__cotizador-2 {
   position: relative;
@@ -82,14 +84,15 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  margin-top: 100px;
+  margin-top: 80px;
   padding: 0.5em;
-  background-color: #f2f2f2;
+  
 }
 .cards {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, auto);
+  gap: 10px;
   margin: 0.2em 0.5em;
   padding: 0.5em 0.7em;
 }
@@ -102,7 +105,7 @@ export default {
   width: 240px;
   height: 300px;
   transition: all 0.3s;
-  padding: 2em;
+  padding: 2em 1em;
   border-radius: 2px 80px 2px;
 }
 .box:hover {

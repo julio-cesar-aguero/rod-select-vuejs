@@ -26,7 +26,7 @@
             >¿Deseas agregar una personalizacion? Cuentanos
           </label>
           <input type="text" name="empresa" />
-          <button @click="submit" type="submit" class="white-button">Enviar</button>
+          <button @click="greet" type="submit" class="white-button">Enviar</button>
         </form>
       </div>
     </section>
@@ -35,12 +35,65 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'Cotizador-7'
+  name: 'Cotizador-7',
+  data(){
+    return{
+      formData: new Object(),
+      mensaje: new String,
+      showMensaje : false
+    }
+  }
   ,methods:{
     submit(){
       this.$router.push('./Cotizador-8')
-    }
+    },
+    register(){
+      var data = {
+        name: this.formData.nombre,
+        email: this.formData.email,
+        telefono: this.formData.telefono
+      
+      }
+      let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+      let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
+      
+      if(expdominio.test(data.email)){
+        this.mensaje = "Ingresa un correo corporativo";
+        this.showMensaje = true;
+      }else{
+        if(!exp.test(data.email)){
+          this.mensaje = "Ingresa un correo valido";
+        }
+        else{
+          //enviarDatos(prospecto);
+                axios.post('http://localhost:3000/api/rodselect/prospecto',data)
+                .then(res => {
+                    console.log(res);
+                    this.mensaje=" Muchas felicidades "+data.email+", te haz registrado correctamente, espera a que te contactemos.";
+                    this.showMensaje = true;
+                    this.resetForm()
+                    
+                })
+                .catch(err => {
+                    console.log(err.response);
+                    this.mensaje='Este correo ya fue registrado, espera a que te contactemos.';
+                });
+
+        }
+      }
+
+    },
+    greet(event) {
+      event.preventDefault();
+      this.register();
+    },
+    resetForm () {
+      this.formData.name = ''
+      this.formData.email = '' 
+      this.formData.telefono = ''
+    } 
   }
 }
 </script>
@@ -63,6 +116,15 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+.form__information span{
+  font-weight: 800;
+  padding: 0.5em;
+}
+.form__information p{
+  font-size: 1em;
+  font-weight: 100;
 }
 .container__form{
   width: 100%;
@@ -93,5 +155,9 @@ export default {
   border-radius: 10px;
   font-weight: 800;
 }
-
+@media (max-width: 739px) {
+  .container__form form{
+    width: 80%;
+  }
+}
 </style>

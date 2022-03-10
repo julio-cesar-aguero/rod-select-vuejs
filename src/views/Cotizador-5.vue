@@ -3,8 +3,8 @@
 
     <!-- pagina 5 -->
     <section id="cotizador-5">
-      <div class="container__cotizador-2">
-        <h2>¿Cual es tu presupuesto?</h2>
+      <div class="container__cotizador-5">
+        <h2>¿A quién entregarás estos regalos?</h2>
         <div class="cards">
           <div 
           class="box"
@@ -65,6 +65,26 @@ export default {
 }
 </script>
 <style scoped>
+.general__section{
+  padding-top: 150px;
+  background-color: #f2f2f2;
+}
+.container__cotizador-5{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* button */
+
+.white-button {
+  background-color: white;
+  color: black;
+  padding: 0.6em 0.9em;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+}
 
 .cards {
   width: 100%;

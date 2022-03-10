@@ -19,7 +19,7 @@ export default{
   }
 </script>
 
-<style>
+<style scoped>
 
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import '~@fortawesome/fontawesome-free/css/brands.css';
@@ -45,6 +45,7 @@ body{
 }
 .general__section{
   width: 100%;
+  height: auto;
   padding-top: 50px;
 }
 

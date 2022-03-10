@@ -109,6 +109,7 @@ h3 {
 .buttons .next-button {
   background-color: white;
   color: black;
+  cursor: pointer;
   padding: 0.6em;
   margin: 0.9em;
   border: none;

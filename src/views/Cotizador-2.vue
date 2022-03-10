@@ -79,7 +79,9 @@ export default {
   border-radius: 10px;
   font-weight: 800;
 }
-
+.general__section{
+  background-color: #f2f2f2;
+}
 /* pagina 2 */
 .container__cotizador-2 {
   position: relative;
@@ -90,7 +92,7 @@ export default {
   width: 100vw;
   margin-top: 100px;
   padding: 0.5em;
-  background-color: #f2f2f2;
+  
 }
 .cards {
   width: 100%;
@@ -98,6 +100,7 @@ export default {
   grid-template-columns: repeat(4, auto);
   margin: 0.2em 0.5em;
   padding: 0.5em 0.7em;
+  gap: 10px;
 }
 .box {
   display: flex;

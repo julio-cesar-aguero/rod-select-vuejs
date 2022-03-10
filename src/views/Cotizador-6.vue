@@ -61,9 +61,20 @@ export default {
 </script>
 
 <style scoped>
+
+/* button */
+
+.white-button {
+  background-color: white;
+  color: black;
+  padding: 0.6em 0.9em;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+}
 .general__section{
   width: 100vw;
-  height: 100%;
+  background-color: #f2f2f2;
 }
 .cards {
   width: 100%;
@@ -155,7 +166,8 @@ export default {
   align-items: center;
 }
 .image-box{
-  background-color: red;
+  background-color: white;
+  border-radius: 10px;
   width: 100px;
   height: 100px;
   margin: 0 auto;

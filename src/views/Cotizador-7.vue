@@ -15,17 +15,17 @@
           <label for="name">Nombre:</label>
           <input v-model="formData.name" type="text" name="name" />
           <label for="lastname">Apellido:</label>
-          <input type="text" name="lastname" />
+          <input v-model="formData.lastname" type="text" name="lastname" />
           <label for="email">E-mail corporativo:</label>
           <input v-model="formData.email" type="text" name="email" />
           <label for="phone">Telefono:</label>
           <input v-model="formData.telefono" type="text" name="phone" />
           <label for="empresa">Empresa:</label>
-          <input type="text" name="empresa" />
+          <input v-model="formData.empresa" type="text" name="empresa" />
           <label for="empresa"
             >¿Deseas agregar una personalizacion? Cuentanos
           </label>
-          <input type="text" name="empresa" />
+          <input v-model="formData.extra" type="text" name="empresa" />
           <button @click="greet" type="submit" class="white-button">Enviar</button>
         </form>
       </div>
@@ -52,8 +52,11 @@ export default {
     register(){
       var data = {
         name: this.formData.name,
+        lastname: this.formData.lastname,
         email: this.formData.email,
-        telefono: this.formData.telefono
+        telefono: this.formData.telefono,
+        empresa: this.formData.Empresa,
+        extra: this.formData.extra
       
       }
       let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;

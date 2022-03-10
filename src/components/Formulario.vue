@@ -55,7 +55,7 @@ export default{
   },methods:{
     register(){
       var data = {
-        name: this.formData.nombre,
+        name: this.formData.name,
         email: this.formData.email,
         telefono: this.formData.telefono
       

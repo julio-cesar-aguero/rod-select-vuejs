@@ -13,13 +13,13 @@
       <div class="container__form">
         <form>
           <label for="name">Nombre:</label>
-          <input type="text" name="name" />
+          <input v-model="formData.name" type="text" name="name" />
           <label for="lastname">Apellido:</label>
           <input type="text" name="lastname" />
           <label for="email">E-mail corporativo:</label>
-          <input type="text" name="email" />
+          <input v-model="formData.email" type="text" name="email" />
           <label for="phone">Telefono:</label>
-          <input type="text" name="phone" />
+          <input v-model="formData.telefono" type="text" name="phone" />
           <label for="empresa">Empresa:</label>
           <input type="text" name="empresa" />
           <label for="empresa"
@@ -51,7 +51,7 @@ export default {
     },
     register(){
       var data = {
-        name: this.formData.nombre,
+        name: this.formData.name,
         email: this.formData.email,
         telefono: this.formData.telefono
       
@@ -74,6 +74,7 @@ export default {
                     this.mensaje=" Muchas felicidades "+data.email+", te haz registrado correctamente, espera a que te contactemos.";
                     this.showMensaje = true;
                     this.resetForm()
+                    this.$router.push('./Cotizador-8')
                     
                 })
                 .catch(err => {

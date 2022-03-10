@@ -96,7 +96,7 @@ h3 {
   margin: 1.2em;
 }
 .column__right{
-  max-height: 300px;
+  height: 300px;
 }
 
 .to-home{
@@ -139,6 +139,9 @@ h3 {
     padding: 0.2em;
     margin: 0.1em;
     height: auto;
+  }
+  .column__right{
+    height: 400px;
   }
 }
 @media (max-width: 520px) {

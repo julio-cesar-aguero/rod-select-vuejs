@@ -5,10 +5,14 @@
       <div class="date__container">
         <h2>¿En qué fecha entregaras este regalo?</h2>
         <div>
-          <date-picker v-model="time1" valueType="format"></date-picker>
+          <date-picker 
+            v-model="time1" 
+            valueType="format"
+            :disabled-date="notBeforeToday"
+            ></date-picker>
         </div>
         <div class="advice" v-show="message">
-          <h2>Correcto / incorrecto</h2>
+          <span>Fecha Seleccionada</span>
         </div>
         <button class="white-button" @click="handleOption(5)">Siguiente</button>
       </div>
@@ -23,6 +27,7 @@
 <script>
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
+import  'vue2-datepicker/locale/es' 
 export default {
   name: "Cotizador-4",
   components: { DatePicker },
@@ -37,6 +42,9 @@ export default {
     handleOption(option) {
       console.log("Option selected", option);
       this.$router.push("./cotizador-5");
+    },
+     notBeforeToday(date) {
+      return date < new Date(new Date().setHours(0, 0, 0, 0));
     },
     selectDate(date){
       
@@ -120,55 +128,6 @@ export default {
 .date__container button {
   margin: 1.5em;
 }
-#cotizador-6 {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  padding: 4em 2em;
-}
-.column__left,
-.column__right {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.column__left {
-  flex-direction: column;
-}
-.column__left .contact__container {
-  margin: 1em 2em;
-  padding: 0.6em 1.4em;
-}
-.box-boxs {
-  width: 360px;
-  height: 360px;
-  display: grid;
-  align-items: center;
-  grid-template-columns: repeat(3, 3fr);
-}
-.box-child {
-  background-color: red;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-}
-/* 7 */
-#cotizador-7 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#cotizador-7 span {
-  font-size: 20px;
-  font-weight: 700;
-}
-#cotizador-7 p {
-  font-size: 20px;
-  font-weight: 500;
-  text-align: center;
-}
 .form__information {
   display: flex;
   flex-direction: column;
@@ -206,42 +165,6 @@ form {
   background: rgba(228, 228, 228, 0.911);
   color: white;
   font-size: 12px;
-}
-/* 8 */
-#cotizador-8 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 3.5em;
-}
-#cotizador-8 .column__left {
-  margin: 1em;
-  padding: 1.4em;
-}
-#cotizador-8 .column__right {
-  padding: 1.4em;
-  height: 50%;
-  border-radius: 2px;
-  background-color: rgba(110, 110, 110, 0.3);
-}
-#cotizador-8 .column__left h2,
-h3 {
-  font-weight: 600;
-}
-#cotizador-8 .column__left p {
-  font-weight: 300;
-}
-
-#cotizador-6 {
-  display: flex;
-  flex-direction: column;
-}
-.column__left,
-.column__right {
-  width: 100%;
-}
-#cotizador-8 {
-  flex-direction: column;
 }
 /* responsive */
 @media (max-width: 1200px) {

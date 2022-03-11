@@ -16,7 +16,7 @@
               type="email" 
               name="email" 
               id="email" 
-              v-model="email"
+              v-model="this.email"
               placeholder="ingresa un correo valido"
               >
               <span>{{mensaje}}</span>
@@ -41,7 +41,7 @@ export default {
     return{
       mensaje: new String,
       showMensaje : false,
-      email: '',
+      email: 'michi@michi.com',
       isValid: true
     }
   },
@@ -68,10 +68,14 @@ export default {
         }
         else{
           this.mensaje = "Correo valido";
+          this.addEmail();
           this.next();
         }
       }
-
+    },
+    addEmail(){
+      console.log("Email enviar",this.email)
+      this.$store.dispatch('addEmailAction',this.email)
     }
     
   }

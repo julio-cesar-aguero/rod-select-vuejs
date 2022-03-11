@@ -3,6 +3,7 @@
          <!-- Pagina 7 -->
     <section id="cotizador-7">
       <div class="form__information">
+        <h1>{{this.$store.state.emailCorporativo}}</h1>
         <span>¡MUCHAS GRACIAS POR LLEGAR HASTA AQUÍ!</span>
         <p>
           Apoyanos dejando tus datos para hacerte llegar tu cotizacion
@@ -17,7 +18,8 @@
           <label for="lastname">Apellido:</label>
           <input v-model="formData.lastname" type="text" name="lastname" />
           <label for="email">E-mail corporativo:</label>
-          <input v-model="formData.email" type="text" name="email" />
+          <input v-model="this.email" type="text" name="email"
+          />
           <label for="phone">Telefono:</label>
           <input v-model="formData.telefono" type="text" name="phone" />
           <label for="empresa">Empresa:</label>
@@ -40,9 +42,19 @@ export default {
   name: 'Cotizador-7',
   data(){
     return{
+      email: '',
       formData: new Object(),
       mensaje: new String,
       showMensaje : false
+    }
+  },
+  mounted(){
+    this.email = this.$store.getters.getEmail;
+    console.log('Zoe',this.email);
+  },
+  watch:{
+    email(newEmail) {
+      localStorage.email = newEmail;
     }
   }
   ,methods:{

@@ -11,10 +11,12 @@
             title="Rod Select Logo"
           />
         </a>
+        
         <div class="container__menu-button" @click="show_hide">
           <i class="fas fa-bars"></i>
         </div>
       </div>
+      <h2>{{ $store.state.immersiveMode}}</h2>
       <div class="container__nav">
         <nav>
           <ul class="ul-show" v-show="(show|showHeader)">
@@ -56,6 +58,7 @@ export default {
   name: 'Cabecera',
   data(){
     return{
+      cabecera: true,
       show: true,
       showHeader:true,
       showMenu: false
@@ -127,6 +130,9 @@ header {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(204, 29, 29, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   transition: cubic-bezier(0.23, 1, 0.32, 1) 300ms;
+}
+h2{
+  color: red;
 }
 .container__Cabecera {
   width: 100%;

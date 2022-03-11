@@ -70,7 +70,7 @@ export default {
           this.mensaje = "Ingresa un correo valido";
         }
         else{
-          //enviarDatos(prospecto);
+          //enviarDatos(cotizacion);
                 axios.post('http://localhost:3000/api/rodselect/cotizacion',data)
                 .then(res => {
                     console.log(res);

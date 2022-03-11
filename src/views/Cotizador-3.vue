@@ -58,6 +58,7 @@ export default {
     handleOption(option){
       console.log("Option selected",option)
       this.$router.push('./cotizador-4')
+      this.option= false
     }
   }
 }

@@ -12,8 +12,15 @@
             presupuesto.
           </p>
           <div class="buttons">
-            <a class="next-button">E-mail corporativo</a>
-            <a class="next-button" @click="next">Iniciar</a>
+            <input 
+              type="email" 
+              name="email" 
+              id="email" 
+              v-model="email"
+              placeholder="ingresa un correo valido"
+              >
+              <span>{{mensaje}}</span>
+            <button class="next-button" @click="validar">Iniciar</button>
           </div>
         </div>
         <div class="bacground-image__container">
@@ -30,11 +37,43 @@
 <script>
 export default {
   name: "Cotizador",
-  methods:{
-    next(){
-      console.log("Michi Next");
-      this.$router.push('/cotizador-2')
+  data(){
+    return{
+      mensaje: new String,
+      showMensaje : false,
+      email: '',
+      isValid: true
     }
+  },
+  methods:{
+    validar(){
+      this.register();
+    },
+    next(){
+      this.$router.push('/cotizador-2')
+    },
+
+    register(){
+      var emailData = this.email;
+      console.log("Max"+emailData);
+      
+      let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+      let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
+      
+      if(expdominio.test(this.email)){
+        this.mensaje = "Ingresa un correo corporativo";
+      }else{
+        if(!exp.test(this.email)){
+          this.mensaje = "Ingresa un correo valido";
+        }
+        else{
+          this.mensaje = "Correo valido";
+          this.next();
+        }
+      }
+
+    }
+    
   }
 };
 </script>

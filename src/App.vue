@@ -1,16 +1,17 @@
 <template>
   <div class="contenedor">
-    <Cabecera></Cabecera>    
+    <Cabecera v-show="$store.state.immersiveMode"></Cabecera>    
     <div class="offset">
        <router-view></router-view>
     </div>
-    <PieDePagina />
+    <PieDePagina v-show="$store.state.immersiveMode" />
   </div>
 </template>
 
 <script>
 export default{
-  name:'app', 
+  name:'app',
+  
   methods: {
   clickButton(){
     

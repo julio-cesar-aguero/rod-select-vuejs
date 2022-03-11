@@ -7,6 +7,9 @@
         <div>
           <date-picker v-model="time1" valueType="format"></date-picker>
         </div>
+        <div class="advice" v-show="message">
+          <h2>Correcto / incorrecto</h2>
+        </div>
         <button class="white-button" @click="handleOption(5)">Siguiente</button>
       </div>
       <div class="contact__container">
@@ -27,6 +30,7 @@ export default {
     return {
       option: true,
       time1: null,
+      message: true
     };
   },
   methods: {
@@ -34,6 +38,9 @@ export default {
       console.log("Option selected", option);
       this.$router.push("./cotizador-5");
     },
+    selectDate(date){
+      
+    }
   },
 };
 </script>
@@ -101,6 +108,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.advice{
+  background-color: white;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 0.5em;
+  font-size: 1em;
+  font-weight: 300;
 }
 .date__container button {
   margin: 1.5em;

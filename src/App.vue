@@ -1,10 +1,14 @@
 <template>
   <div class="contenedor">
+      <transition name="fade">
     <Cabecera v-show="$store.state.immersiveMode"></Cabecera>    
-    <div class="offset">
-       <router-view></router-view>
-    </div>
+      </transition>
+    <transition name="slide-fade">
+          <router-view />
+    </transition>
+      <transition name="fade">
     <PieDePagina v-show="$store.state.immersiveMode" />
+      </transition>
   </div>
 </template>
 
@@ -49,5 +53,10 @@ body{
   height: auto;
   padding-top: 50px;
 }
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0.1
+}
 </style>

@@ -16,14 +16,13 @@
           <i class="fas fa-bars"></i>
         </div>
       </div>
-      <h2>{{ $store.state.immersiveMode}}</h2>
       <div class="container__nav">
         <nav>
           <ul class="ul-show" v-show="(show|showHeader)">
             <li>
               <a class="link" @click="to('/cotizador')">Cotiza</a>
             </li>
-            <div class="menu-show" v-show="showMenu">
+            <div class="menu-show" >
               <li>
               <a class="link" href="#nosotros">Nosotros</a>
             </li>
@@ -89,6 +88,8 @@ export default {
   },
   to(ruta){
     if(ruta=='/cotizador'){
+    console.log(this.$router)
+    this.changeMode();
       if(this.showMenu == true) this.showMenu = false;
       console.log("Michi ruta",ruta);
       this.$router.push(ruta)
@@ -97,6 +98,9 @@ export default {
       this.$router.push(ruta);
     }
 
+  },
+  changeMode(){
+    this.$store.dispatch('changeModeAction')
   }
   ,
   myEventHandler(e) {

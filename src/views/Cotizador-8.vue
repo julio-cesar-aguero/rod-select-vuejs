@@ -64,7 +64,7 @@ export default {
   name: 'Cotizador-8',
   methods:{
     handleToHome(){
-      this.$router.push('./cotizador')
+      this.$router.push('./')
     }
   }
 }

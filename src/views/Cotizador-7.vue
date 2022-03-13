@@ -18,7 +18,7 @@
           <label for="lastname">Apellido:</label>
           <input v-model="formData.lastname" type="text" name="lastname" />
           <label for="email">E-mail corporativo:</label>
-          <input v-model="this.email" type="text" name="email"
+          <input v-model="this.email" type="text" name="email" disabled
           />
           <label for="phone">Telefono:</label>
           <input v-model="formData.telefono" type="text" name="phone" />

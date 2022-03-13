@@ -19,6 +19,7 @@
               v-model="this.email"
               placeholder="ingresa un correo valido"
               >
+              
               <span>{{mensaje}}</span>
             <button class="next-button" @click="validar">Iniciar</button>
           </div>
@@ -44,7 +45,10 @@ export default {
       email: 'michi@michi.com',
       isValid: true
     }
-  },
+  },created(){
+    this.$store.dispatch('changeModeAction',false)
+  }
+  ,
   methods:{
     validar(){
       this.register();

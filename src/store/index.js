@@ -18,7 +18,6 @@ export default new Vuex.Store({
       state.immersiveMode = payload
     },
     addEmail( state, payload ) {
-      console.log("Payload-2"+payload)
       state.emailCorporativo = payload
     }
   },
@@ -32,7 +31,6 @@ export default new Vuex.Store({
     }
     ,
     addEmailAction( { commit } ,payload){
-      console.log("Payload-1"+payload)
       commit('addEmail',payload)
     }
   },

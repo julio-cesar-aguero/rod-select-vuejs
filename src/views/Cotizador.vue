@@ -11,12 +11,11 @@
             regalo altamente personalizado de acuerdo atus necesidades y
             presupuesto.
           </p>
-          <form>
+          <form class="emailForm">
             <label for="email">E-mail corporativo:</label>
-            <input v-model="message" placeholder="edit me">
-            <p>Message is: {{ message }}</p>
+            <input v-model="message" placeholder="INGRESA UN EMAIL!">
             <div class="buttons">
-              <span>{{ mensaje }}</span>
+              <span v-show="showMensaje">{{ mensaje }}</span>
               <button type="button" class="next-button" @click="validar()">Iniciar</button>
             </div>
           </form>
@@ -59,16 +58,17 @@ export default {
 
     register() {
       let emailData = this.message;
-      console.log("Max" + this.emailData);
-
+      this.showMensaje = false
       let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
       let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
 
       if (expdominio.test(emailData)) {
         this.mensaje = "Ingresa un correo corporativo";
+        this.showMensaje = true
       } else {
         if (!exp.test(emailData)) {
           this.mensaje = "Ingresa un correo valido";
+          this.showMensaje = true
         } else {
           this.mensaje = "Correo valido";
           this.addEmail();
@@ -129,6 +129,16 @@ h3 {
   height: 90vh;
   z-index: 10;
   position: absolute;
+}
+.emailForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+.emailForm input{
+  border-radius: 4px;
 }
 .card__information small {
   font-size: 2em;

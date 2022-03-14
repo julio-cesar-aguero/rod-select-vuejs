@@ -45,7 +45,7 @@
         <div class="contact__container">
           <h3>¿Quieres desarrollar un proyecto personalizado?</h3>
           <!-- <a href="https://api.whatsapp.com/send?phone=+523318954279&text=%C2%A1Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20regalos%20corporativos" target="_blank"> <i class="fab fa-whatsapp"></i> 33 1895 4279</a>-->
-          <a @click="enable = true" class="white-button">Contacta un asesor</a>
+          <Asesor />
         </div>
       </div>
     </section>
@@ -53,8 +53,12 @@
 </template>
 
 <script>
+import Asesor from "../components/Asesor.vue";
 export default {
   name: 'Cotizador-2',
+  components: {
+    Asesor: Asesor,
+  },
   data(){
     return{
         option: true

@@ -18,19 +18,23 @@
       </div>
       <div class="contact__container">
         <h3>¿Quieres atención personalizada?</h3>
-        <button class="white-button">Contacta un asesor</button>
+        <Asesor />
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import Asesor from "../components/Asesor.vue";
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import  'vue2-datepicker/locale/es' 
 export default {
   name: "Cotizador-4",
-  components: { DatePicker },
+  components: { 
+    Asesor: Asesor,
+    DatePicker 
+    },
   data() {
     return {
       option: true,

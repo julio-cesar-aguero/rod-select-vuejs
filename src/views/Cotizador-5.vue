@@ -39,7 +39,7 @@
         </div>
         <div class="contact__container">
           <h3>¿Quieres desarrollar un proyecto personalizado?</h3>
-          <button class="white-button">Contacta un asesor</button>
+          <Asesor />
         </div>
       </div>
     </section>
@@ -47,10 +47,13 @@
 </template>
 
 <script>
-
+import Asesor from "../components/Asesor.vue";
 export default {
 
   name: 'Cotizador-5',
+  components: {
+    Asesor: Asesor,
+  },
   data(){
     return{
         option: true

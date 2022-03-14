@@ -12,7 +12,7 @@
         </div>
         <div class="contact__container">
           <h2>Quiero desarrollar mi propio regalo</h2>
-          <button class="white-button">Contacta un asesor</button>
+          <Asesor />
         </div>
       </div>
       <div class="column__right">
@@ -33,8 +33,12 @@
 </template>
 
 <script>
+import Asesor from "../components/Asesor.vue";
 export default {
   name: 'Cotizador-6',
+  components: {
+    Asesor: Asesor,
+  },
   data(){
     return{
       boxs : {

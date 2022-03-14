@@ -68,9 +68,13 @@ export default {
 }
 </script>
 <style scoped>
+section{
+  background-color: #f2f2f2;
+}
 .general__section{
   padding-top: 150px;
   background-color: #f2f2f2;
+  height: 100vh;
 }
 .container__cotizador-5{
   display:flex;

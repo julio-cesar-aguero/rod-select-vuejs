@@ -64,8 +64,9 @@ export default {
 </script>
 
 <style scoped>
-.general__section {
+.general__section{
   background-color: #f2f2f2;
+  height: 100vh;
 }
 /* button */
 

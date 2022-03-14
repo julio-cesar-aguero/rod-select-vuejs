@@ -69,7 +69,9 @@ export default {
 </script>
 
 <style scoped>
-
+body{
+  background-color: #f2f2f2;
+}
 .white-button {
   background-color: white;
   color: black;
@@ -80,6 +82,7 @@ export default {
 }
 .general__section{
   background-color: #f2f2f2;
+  height: 100vh;
 }
 /* pagina 2 */
 .container__cotizador-2 {

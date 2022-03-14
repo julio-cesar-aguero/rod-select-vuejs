@@ -11,18 +11,15 @@
             regalo altamente personalizado de acuerdo atus necesidades y
             presupuesto.
           </p>
-          <div class="buttons">
-            <input 
-              type="email" 
-              name="email" 
-              id="email" 
-              v-model="this.email"
-              placeholder="ingresa un correo valido"
-              >
-              
-              <span>{{mensaje}}</span>
-            <button class="next-button" @click="validar">Iniciar</button>
-          </div>
+          <form>
+            <label for="email">E-mail corporativo:</label>
+            <input v-model="message" placeholder="edit me">
+            <p>Message is: {{ message }}</p>
+            <div class="buttons">
+              <span>{{ mensaje }}</span>
+              <button type="button" class="next-button" @click="validar()">Iniciar</button>
+            </div>
+          </form>
         </div>
         <div class="bacground-image__container">
           <img
@@ -38,51 +35,51 @@
 <script>
 export default {
   name: "Cotizador",
-  data(){
-    return{
-      mensaje: new String,
-      showMensaje : false,
-      email: 'michi@michi.com',
-      isValid: true
-    }
-  },created(){
-    this.$store.dispatch('changeModeAction',false)
-  }
-  ,
-  methods:{
-    validar(){
+  data() {
+    return {
+      message: '',
+      email: 'julio@mail.com',
+      mensaje: "Ingresa un Email !",
+      showMensaje: false,
+      email2: new Object(),
+      isValid: true,
+    };
+  },
+  created() {
+    this.$store.dispatch("changeModeAction", false);
+  },
+  methods: {
+    validar() {
       this.register();
     },
-    next(){
-      this.$router.push('/cotizador-2')
+    next() {
+      this.$router.push("/cotizador-2");
     },
 
-    register(){
-      var emailData = this.email;
-      console.log("Max"+emailData);
-      
+    register() {
+      let emailData = this.message;
+      console.log("Max" + this.emailData);
+
       let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
       let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
-      
-      if(expdominio.test(this.email)){
+
+      if (expdominio.test(emailData)) {
         this.mensaje = "Ingresa un correo corporativo";
-      }else{
-        if(!exp.test(this.email)){
+      } else {
+        if (!exp.test(emailData)) {
           this.mensaje = "Ingresa un correo valido";
-        }
-        else{
+        } else {
           this.mensaje = "Correo valido";
           this.addEmail();
           this.next();
         }
       }
     },
-    addEmail(){
-      console.log("Email enviar",this.email)
-      this.$store.dispatch('addEmailAction',this.email)
-    }
-    
-  }
+    addEmail() {
+      console.log("Email enviar", this.email,this.message);
+      this.$store.dispatch("addEmailAction", this.email);
+    },
+  },
 };
 </script>
 
@@ -90,9 +87,8 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #f2f2f2;
 }
-.general__section section {
+.general__section {
   background-color: #f2f2f2;
   width: 100%;
   padding-top: 50px;
@@ -105,18 +101,17 @@ h3 {
 /* pagina 1 */
 #cotizador {
   width: 100vw;
-  
-  margin-top: 50px;
+  background-color: #f2f2f2;
 }
 .cotizador__portada {
   height: 80vh;
   display: grid;
-  background-color: #f2f2f2;
+
   margin-top: 20px;
   position: relative;
   margin-bottom: 300px;
 }
-.background-image__container{
+.background-image__container {
   width: 100%;
   height: 80vh;
 }
@@ -172,7 +167,6 @@ h3 {
   font-weight: 800;
 }
 
-
 @media (max-width: 845px) {
   .card__information {
     width: 90%;
@@ -208,5 +202,4 @@ h3 {
     transform: scale(2.8);
   }
 }
-
 </style>

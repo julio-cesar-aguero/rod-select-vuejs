@@ -12,7 +12,7 @@
             ></date-picker>
         </div>
         <div class="advice" v-show="message">
-          <span>Fecha Seleccionada</span>
+          <span>Ingresa una fecha !</span>
         </div>
         <button class="white-button" @click="handleOption(5)">Siguiente</button>
       </div>
@@ -35,13 +35,19 @@ export default {
     return {
       option: true,
       time1: null,
-      message: true
+      message: false
     };
   },
   methods: {
     handleOption(option) {
-      console.log("Option selected", option);
-      this.$router.push("./cotizador-5");
+      this.message = false
+      if(this.time1 != null){
+        console.log("Fecha", this.time1);
+        this.$router.push("./cotizador-5");
+      }else{
+        this.message = true
+      }
+      
     },
      notBeforeToday(date) {
       return date < new Date(new Date().setHours(0, 0, 0, 0));

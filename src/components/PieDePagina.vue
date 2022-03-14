@@ -14,6 +14,7 @@
                 <span>Rod Accesorios SAPI de C.V.</span>
                 <h4>Contacto:</h4>
                 <a href="mailto:marketing@rodaccesorios.com"> <i class="far fa-envelope"></i> marketing@rodaccesorios.com</a> <br>
+                <a @click="mensaje" ><i class="fab fa-whatsapp"></i>3 1895 4279</a>
                 <a href="https://api.whatsapp.com/send?phone=+523318954279&text=%C2%A1Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20regalos%20corporativos" target="_blank"> <i class="fab fa-whatsapp"></i> 33 1895 4279</a>
                 <h4>Ubicacion:</h4>
                 <span>México</span>
@@ -35,6 +36,12 @@
 <script>
 export default {
 name: 'PieDePagina'
+,
+computed: {
+      double() {
+        return this.value * 2;
+      }
+    }
 }
 </script>
 

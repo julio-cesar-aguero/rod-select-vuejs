@@ -40,6 +40,7 @@ export default{
 }
 body{
   font-family: 'Poppins',sans-serif;
+  background-color: #f2f2f2;
 }
 #app {
   font-family: 'Poppins', sans-serif;

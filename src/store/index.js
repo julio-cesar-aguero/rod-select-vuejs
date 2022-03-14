@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     // informacion general
     immersiveMode : false,
-    emailCorporativo: 'Michi'
+    emailCorporativo: new String
   },
   mutations: {
     // modificadores de estado

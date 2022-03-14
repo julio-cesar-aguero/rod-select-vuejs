@@ -27,7 +27,7 @@
           <label for="empresa"
             >¿Deseas agregar una personalizacion? Cuentanos
           </label>
-          <input v-model="formData.extra" type="text" name="empresa" />
+          <textarea class="boxText" v-model="formData.extra"  name="comentarios" rows="10" cols="40"></textarea>
           <button @click="greet" type="submit" class="white-button">Enviar</button>
         </form>
       </div>
@@ -159,6 +159,11 @@ export default {
   margin: 0.4em;
   height: 35px;
   border: none;
+  background-color: antiquewhite;
+  border-radius: 20px;
+}
+.boxText{
+  height: 200px;
   background-color: antiquewhite;
   border-radius: 20px;
 }

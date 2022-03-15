@@ -86,10 +86,11 @@ export default {
   methods: {
     register() {
       var data = {
+        date: Date.now(),
         name: this.formData.name,
         email: this.formData.email,
         telefono: this.formData.telefono,
-        regalo: this.selected
+        categoria: this.selected
       };
       console.log(data)
       let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;

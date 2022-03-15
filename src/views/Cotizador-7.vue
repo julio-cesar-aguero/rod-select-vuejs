@@ -50,7 +50,6 @@ export default {
   },
   mounted(){
     this.email = this.$store.getters.getEmail;
-    console.log('Zoe',this.email);
   },
   watch:{
     email(newEmail) {

@@ -18,13 +18,85 @@
       <div class="column__right">
         <div class="box-boxs">
           <div 
-          @click="selectArticle"
+          @click="selectArticle('joyeria')"
             class="box-child" 
-            v-for="(item,index) in boxs" :key="index">
+            >
             <div class="image-box">
-              <img src="" alt="box-image">
+              <img src="../assets/img/cotizador/recursos/cotizador-joyeria.webp" alt="box-image">
             </div>
-            <span>{{item}}</span>
+            <span>{{boxs.joyeria}}</span>
+          </div>
+          <div 
+          @click="selectArticle('piel')"
+            class="box-child" 
+            >
+            <div class="image-box">
+              <img src="../assets/img/cotizador/recursos/cotizador-piel.webp" alt="box-image">
+            </div>
+            <span>{{boxs.piel}}</span>
+          </div>
+          <div 
+          @click="selectArticle('reloj')"
+            class="box-child" 
+            >
+            <div class="image-box">
+              <img src="../assets/img/cotizador/recursos/cotizador-reloj.webp" alt="box-image">
+            </div>
+            <span>{{boxs.reloj}}</span>
+          </div>
+          <div 
+          @click="selectArticle('plumas')"
+            class="box-child" 
+            >
+            <div class="image-box">
+              <img src="../assets/img/cotizador/recursos/cotizador-plumas.webp" alt="box-image">
+            </div>
+            <span>{{boxs.boligrafos}}</span>
+          </div>
+          <div 
+          @click="selectArticle('pines')"
+            class="box-child" 
+            >
+            <div class="image-box">
+              <img src="../assets/img/cotizador/recursos/cotizador-pines.webp" alt="box-image">
+            </div>
+            <span>{{boxs.pines}}</span>
+          </div>
+          <div 
+          @click="selectArticle('mochilas')"
+            class="box-child" 
+            >
+            <div class="image-box">
+              <img src="../assets/img/cotizador/recursos/cotizador-mochilas.webp" alt="box-image">
+            </div>
+            <span>{{boxs.mochilas}}</span>
+          </div>
+          <div 
+          @click="selectArticle('gamer')"
+            class="box-child" 
+            >
+            <div class="image-box">
+              <img src="../assets/img/cotizador/recursos/cotizador-gamer.webp" alt="box-image">
+            </div>
+            <span>{{boxs.gamer}}</span>
+          </div>
+          <div 
+          @click="selectArticle('cotizador')"
+            class="box-child" 
+            >
+            <div class="image-box">
+              <img src="../assets/img/cotizador/recursos/cotizador-reconocimientos.webp" alt="box-image">
+            </div>
+            <span>{{boxs.reconocimientos}}</span>
+          </div>
+          <div 
+          @click="selectArticle('otros')"
+            class="box-child" 
+            >
+            <div class="image-box">
+              <img src="../assets/img/cotizador/recursos/cotizador-otros.webp" alt="box-image">
+            </div>
+            <span>{{boxs.otros}}</span>
           </div>
         </div>
       </div>
@@ -41,23 +113,25 @@ export default {
   },
   data(){
     return{
+      option:'',
       boxs : {
-        1 : 'Joyería personalizada',
-        2 : 'Artículos de Piel',
-        3 : 'Relojes',
-        4 : 'Boligrafos',
-        5 : 'Pines Personalizados',
-        6 : 'Mochilas y Portafolios',
-        7 : 'Articulos Gamer',
-        8 : 'Reconocimientos',
-        9 : 'Otros'
+        joyeria : 'Joyería personalizada',
+        piel : 'Artículos de Piel',
+        reloj : 'Relojes',
+        boligrafos : 'Boligrafos',
+        pines : 'Pines Personalizados',
+        mochilas : 'Mochilas y Portafolios',
+        gamer : 'Articulos Gamer',
+        reconocimientos : 'Reconocimientos',
+        otros : 'Otros'
       }
     }
     
   },
   methods:{
-    selectArticle(){
-      console.log("article")
+    selectArticle(article){
+      console.log("article",article)
+      this.option =
       this.$router.push('/Cotizador-7');
     }
   }
@@ -77,7 +151,7 @@ export default {
   font-weight: 800;
 }
 .general__section{
-  width: 100vw;
+  width: 100%;
   background-color: #f2f2f2;
 }
 .cards {
@@ -169,7 +243,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.image-box{
+.image-box img{
   background-color: white;
   border-radius: 10px;
   width: 100px;

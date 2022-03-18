@@ -1,8 +1,7 @@
 <template>
   <div class="general__section">
-    
-      <Formulario />
-    
+    <Formulario />
+
     <section id="nosotros">
       <img
         id="img-mesa-trabajo"
@@ -138,42 +137,92 @@
         </div>
       </section>
     </section>
-            <section id="proyectos_especiales" >
-            
-            <h3>Proyectos Especiales</h3>
-            <div class="card tarjeta">
-                <img loading="lazy" src="../assets/img/productos_especiales/911.webp" class="card-img-top" alt="" title="">
-                <div class="card-body"> <h5 class="card-title">9/11 MUSEUM & MEMORIAL</h5> </div>
-            </div>
+    <section id="proyectos_especiales">
+      <h3>Proyectos Especiales</h3>
+      <div class="card tarjeta">
+        <img
+          loading="lazy"
+          src="../assets/img/productos_especiales/911.webp"
+          class="card-img-top"
+          alt=""
+          title=""
+        />
+        <div class="card-body">
+          <h5 class="card-title">9/11 MUSEUM & MEMORIAL</h5>
+        </div>
+      </div>
 
-            <div id="tarjetas">
-                
-                <div class="card tarjeta">
-                    <img loading="lazy" src="../assets/img/productos_especiales/blen.webp" class="card-img-top" alt="blen" title="Blen">
-                    <div class="card-body"> <h5 class="card-title">BLEN</h5> </div>
-                </div>
-                <div class="card tarjeta">
-                    <img loading="lazy" src="../assets/img/productos_especiales/diane_von.webp" class="card-img-top" alt="diane_von" title="Diane Von">
-                    <div class="card-body"> <h5 class="card-title">DIANE VON FURSTENBERG</h5> </div>
-                </div>
-                <div class="card tarjeta">
-                    <img loading="lazy" src="../assets/img/productos_especiales/fao.webp" class="card-img-top" alt="fao" title="FAO">
-                    <div class="card-body"> <h5 class="card-title">FAO SCHWARZ</h5> </div>
-                </div>
-                <div class="card tarjeta">
-                    <img loading="lazy" src="../assets/img/productos_especiales/rodan_fields.webp" class="card-img-top" alt="rodan_fields" title="Rodan Fields">
-                    <div class="card-body"> <h5 class="card-title">RODAN + FIELDS</h5> </div>
-                </div>
-                <div class="card tarjeta">
-                    <img loading="lazy" src="../assets/img/productos_especiales/hungergames.webp" class="card-img-top" alt="hungergames" title="Hunger Games">
-                    <div class="card-body"> <h5 class="card-title">HUNGER GAMES EXHIBITION</h5> </div>
-                </div>
-                <div class="card tarjeta">
-                    <img loading="lazy" src="../assets/img/productos_especiales/sarahbrightman.webp" class="card-img-top" alt="sarahbrightman" title="Sarah Brightman">
-                    <div class="card-body"> <h5 class="card-title">SARAH BRIGHTMAN HYMN TOUR</h5> </div>
-                </div>
-            </div>
-        </section>
+      <div id="tarjetas">
+        <div class="card tarjeta">
+          <img
+            loading="lazy"
+            src="../assets/img/productos_especiales/blen.webp"
+            class="card-img-top"
+            alt="blen"
+            title="Blen"
+          />
+          <div class="card-body"><h5 class="card-title">BLEN</h5></div>
+        </div>
+        <div class="card tarjeta">
+          <img
+            loading="lazy"
+            src="../assets/img/productos_especiales/diane_von.webp"
+            class="card-img-top"
+            alt="diane_von"
+            title="Diane Von"
+          />
+          <div class="card-body">
+            <h5 class="card-title">DIANE VON FURSTENBERG</h5>
+          </div>
+        </div>
+        <div class="card tarjeta">
+          <img
+            loading="lazy"
+            src="../assets/img/productos_especiales/fao.webp"
+            class="card-img-top"
+            alt="fao"
+            title="FAO"
+          />
+          <div class="card-body"><h5 class="card-title">FAO SCHWARZ</h5></div>
+        </div>
+        <div class="card tarjeta">
+          <img
+            loading="lazy"
+            src="../assets/img/productos_especiales/rodan_fields.webp"
+            class="card-img-top"
+            alt="rodan_fields"
+            title="Rodan Fields"
+          />
+          <div class="card-body">
+            <h5 class="card-title">RODAN + FIELDS</h5>
+          </div>
+        </div>
+        <div class="card tarjeta">
+          <img
+            loading="lazy"
+            src="../assets/img/productos_especiales/hungergames.webp"
+            class="card-img-top"
+            alt="hungergames"
+            title="Hunger Games"
+          />
+          <div class="card-body">
+            <h5 class="card-title">HUNGER GAMES EXHIBITION</h5>
+          </div>
+        </div>
+        <div class="card tarjeta">
+          <img
+            loading="lazy"
+            src="../assets/img/productos_especiales/sarahbrightman.webp"
+            class="card-img-top"
+            alt="sarahbrightman"
+            title="Sarah Brightman"
+          />
+          <div class="card-body">
+            <h5 class="card-title">SARAH BRIGHTMAN HYMN TOUR</h5>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="slider-proyectos">
       <div
@@ -333,19 +382,17 @@ export default {
   components: {
     Formulario: Formulario,
   },
-  created(){
-    console.log("CREATED")
-    this.$store.dispatch('changeModeAction',true)
-  }
-  ,
-  mounted(){
-    console.log("MOUNTED")
-  }
+  created() {
+    console.log("CREATED");
+    this.$store.dispatch("changeModeAction", true);
+  },
+  mounted() {
+    console.log("MOUNTED");
+  },
 };
 </script>
 
 <style scoped>
-
 #nosotros {
   display: grid;
   grid-template-areas: "imagen desc";
@@ -506,37 +553,37 @@ export default {
   width: 1000px;
 }
 
-#proyectos_especiales{
-    width: 100%;
-    overflow: hidden;
+#proyectos_especiales {
+  width: 100%;
+  overflow: hidden;
 }
 
-#proyectos_especiales{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+#proyectos_especiales {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
-#proyectos_especiales h3{
-    font-size: 40px;
-    font-weight: bold;
+#proyectos_especiales h3 {
+  font-size: 40px;
+  font-weight: bold;
 }
-#tarjetas{
-    display: flex;
-    flex-wrap: wrap;
-    
-    align-items: center;
-    justify-content: space-around;
+#tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: space-around;
 }
 
-.tarjeta{
-    width: 450px;
-    margin: 15px;
-    transition: all 300ms;
+.tarjeta {
+  width: 450px;
+  margin: 15px;
+  transition: all 300ms;
 }
-.tarjeta:hover{
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.7);
+.tarjeta:hover {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.7);
 }
 
 #slider-proyectos {
@@ -791,10 +838,10 @@ export default {
     background: rgba(240, 240, 240, 0.5);
     width: 90%;
   }
-  #beneficios img{
+  #beneficios img {
     width: 95%;
   }
-  #carouselExampleCaptions{
+  #carouselExampleCaptions {
     max-width: 100%;
   }
   #clientes h2 {

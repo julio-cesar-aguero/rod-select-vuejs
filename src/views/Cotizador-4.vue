@@ -5,11 +5,11 @@
       <div class="date__container">
         <h2>¿En qué fecha entregaras este regalo?</h2>
         <div>
-          <date-picker 
-            v-model="time1" 
+          <date-picker
+            v-model="time1"
             valueType="format"
             :disabled-date="notBeforeToday"
-            ></date-picker>
+          ></date-picker>
         </div>
         <div class="advice" v-show="message">
           <span>Ingresa una fecha !</span>
@@ -28,43 +28,40 @@
 import Asesor from "../components/Asesor.vue";
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
-import  'vue2-datepicker/locale/es' 
+import "vue2-datepicker/locale/es";
 export default {
   name: "Cotizador-4",
-  components: { 
+  components: {
     Asesor: Asesor,
-    DatePicker 
-    },
+    DatePicker,
+  },
   data() {
     return {
       option: true,
       time1: null,
-      message: false
+      message: false,
     };
   },
   methods: {
     handleOption(option) {
-      this.message = false
-      if(this.time1 != null){
+      this.message = false;
+      if (this.time1 != null) {
         console.log("Fecha", this.time1);
         this.$router.push("./cotizador-5");
-      }else{
-        this.message = true
+      } else {
+        this.message = true;
       }
-      
     },
-     notBeforeToday(date) {
+    notBeforeToday(date) {
       return date < new Date(new Date().setHours(0, 0, 0, 0));
     },
-    selectDate(date){
-      
-    }
+    selectDate(date) {},
   },
 };
 </script>
 
 <style scoped>
-.general__section{
+.general__section {
   background-color: #f2f2f2;
   height: 100vh;
 }
@@ -128,7 +125,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.advice{
+.advice {
   background-color: white;
   border-radius: 10px;
   padding: 1em;

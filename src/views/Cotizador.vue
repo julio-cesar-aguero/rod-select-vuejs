@@ -13,10 +13,20 @@
           </p>
           <form class="emailForm">
             <label for="email">E-mail corporativo:</label>
-            <input v-model="message" placeholder="INGRESA UN EMAIL!">
+            <input
+              type="email"
+              v-model="email"
+              placeholder="INGRESA UN EMAIL!"
+            />
             <div class="buttons">
               <span v-show="showMensaje">{{ mensaje }}</span>
-              <button type="button" class="next-button" @click="validar()">Iniciar</button>
+              <button
+                type="button"
+                class="next-button"
+                @click.prevent="validar()"
+              >
+                Iniciar
+              </button>
             </div>
           </form>
         </div>
@@ -34,14 +44,12 @@
 <script>
 export default {
   name: "Cotizador",
-  
+
   data() {
     return {
-      message: '',
-      email: 'julio@mail.com',
+      email: "",
       mensaje: "Ingresa un Email !",
       showMensaje: false,
-      email2: new Object(),
       isValid: true,
     };
   },
@@ -57,18 +65,18 @@ export default {
     },
 
     register() {
-      let emailData = this.message;
-      this.showMensaje = false
+      let emailData = this.email;
+      this.showMensaje = false;
       let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
       let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
 
       if (expdominio.test(emailData)) {
         this.mensaje = "Ingresa un correo corporativo";
-        this.showMensaje = true
+        this.showMensaje = true;
       } else {
         if (!exp.test(emailData)) {
           this.mensaje = "Ingresa un correo valido";
-          this.showMensaje = true
+          this.showMensaje = true;
         } else {
           this.mensaje = "Correo valido";
           this.addEmail();
@@ -77,7 +85,7 @@ export default {
       }
     },
     addEmail() {
-      console.log("Email enviar", this.email,this.message);
+      console.log("Email enviar", this.email, this.email);
       this.$store.dispatch("addEmailAction", this.email);
     },
   },
@@ -130,15 +138,18 @@ h3 {
   z-index: 10;
   position: absolute;
 }
-.emailForm{
+.emailForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1em;
 }
-.emailForm input{
-  border-radius: 4px;
+.emailForm input {
+  border: none;
+  margin: 0.5em;
+  padding: 0.4em 2.9em;
+  border-radius: 6px;
 }
 .card__information small {
   font-size: 2em;

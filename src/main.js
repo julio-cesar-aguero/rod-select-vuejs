@@ -10,15 +10,16 @@ import VueAxios from 'vue-axios'
 import Cabecera from './components/Cabecera'
 import PieDePagina from './components/PieDePagina'
 
-
+Vue.use(VueAxios, axios)
+//axios.defaults.baseURL = 'http://3000/api';
+axios.defaults.baseURL = 'https://sistemasrod/api';
 
 Vue.component('Cabecera', Cabecera)
 Vue.component('PieDePagina', PieDePagina)
 Vue.config.productionTip = false
 
-import vueScrollBehavior from 'vue-scroll-behavior'
 
-Vue.use(vueScrollBehavior, { router: router })
+Vue.use( { router: router })
 new Vue({
   router,
   store,

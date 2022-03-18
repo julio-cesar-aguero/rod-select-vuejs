@@ -1,38 +1,25 @@
 <template>
   <div class="general__section">
-
     <!-- pagina 5 -->
     <section id="cotizador-5">
       <div class="container__cotizador-5">
         <h2>¿A quién entregarás estos regalos?</h2>
         <div class="cards">
-          <div 
-          class="box"
-          @click="handleOption(1)"
-          >
+          <div class="box" @click="handleOption(1)">
             <img class="box-img" src="../assets/img/icon/people.png" alt="" />
             <span>Colaboradores</span>
           </div>
 
-          <div 
-          class="box"
-          @click="handleOption(2)"
-          >
+          <div class="box" @click="handleOption(2)">
             <img class="box-img" src="../assets/img/icon/people.png" alt="" />
             <span>Clientes</span>
           </div>
-          <div 
-          class="box"
-          @click="handleOption(3)"
-          >
+          <div class="box" @click="handleOption(3)">
             <img class="box-img" src="../assets/img/icon/people.png" alt="" />
             <span>Socios</span>
           </div>
 
-          <div 
-          class="box"
-          @click="handleOption(4)"
-          >
+          <div class="box" @click="handleOption(4)">
             <img class="box-img" src="../assets/img/icon/people.png" alt="" />
             <span>Otros</span>
           </div>
@@ -49,35 +36,34 @@
 <script>
 import Asesor from "../components/Asesor.vue";
 export default {
-
-  name: 'Cotizador-5',
+  name: "Cotizador-5",
   components: {
     Asesor: Asesor,
   },
-  data(){
-    return{
-        option: true
-    }
+  data() {
+    return {
+      option: true,
+    };
   },
-  methods:{
-    handleOption(option){
-      console.log("Option selected",option)
-      this.$router.push('./cotizador-6')
-    }
-  }
-}
+  methods: {
+    handleOption(option) {
+      console.log("Option selected", option);
+      this.$router.push("./cotizador-6");
+    },
+  },
+};
 </script>
 <style scoped>
-section{
+section {
   background-color: #f2f2f2;
 }
-.general__section{
+.general__section {
   padding-top: 150px;
   background-color: #f2f2f2;
   height: 100vh;
 }
-.container__cotizador-5{
-  display:flex;
+.container__cotizador-5 {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -131,7 +117,7 @@ section{
   flex-direction: column;
   align-items: center;
 }
-.contact__container h3{
+.contact__container h3 {
   font-size: 1em;
   margin: 1.7em;
 }
@@ -194,7 +180,7 @@ section{
   font-weight: 500;
   text-align: center;
 }
-.form__information{
+.form__information {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -257,15 +243,15 @@ h3 {
   font-weight: 300;
 }
 
-  #cotizador-6 {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #cotizador-8 {
-    flex-direction: column;
-  }
-  /* responsive */
+#cotizador-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+#cotizador-8 {
+  flex-direction: column;
+}
+/* responsive */
 @media (max-width: 1200px) {
   .cards {
     grid-template-columns: repeat(2, 2fr);
@@ -278,6 +264,11 @@ h3 {
   }
   .box span {
     font-size: 0.9em;
+  }
+}
+@media (max-width: 739px) {
+  .container__cotizador-2 {
+    height: 100%;
   }
 }
 @media (max-width: 520px) {

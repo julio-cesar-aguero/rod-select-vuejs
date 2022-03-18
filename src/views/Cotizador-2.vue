@@ -1,6 +1,5 @@
 .<template>
   <div class="general__section">
-
     <!-- pagina 2 -->
     <section id="cotizador-2">
       <div class="container__cotizador-2">
@@ -14,8 +13,7 @@
             />
             <span>MENOS DE $80,000 MXN</span>
           </div>
-          <div class="box"
-          @click="handleOption(2)">
+          <div class="box" @click="handleOption(2)">
             <img
               class="box-img"
               src="../assets/img/icon/calculator.png"
@@ -23,8 +21,7 @@
             />
             <span>DE $80,000 MXN A 150,000 MXN</span>
           </div>
-          <div class="box"
-          @click="handleOption(3)">
+          <div class="box" @click="handleOption(3)">
             <img
               class="box-img"
               src="../assets/img/icon/calculator.png"
@@ -32,8 +29,7 @@
             />
             <span>DE $150,000 A 500,000 MXN</span>
           </div>
-          <div class="box"
-          @click="handleOption(4)">
+          <div class="box" @click="handleOption(4)">
             <img
               class="box-img"
               src="../assets/img/icon/calculator.png"
@@ -55,22 +51,22 @@
 <script>
 import Asesor from "../components/Asesor.vue";
 export default {
-  name: 'Cotizador-2',
+  name: "Cotizador-2",
   components: {
     Asesor: Asesor,
   },
-  data(){
-    return{
-        option: true
-    }
+  data() {
+    return {
+      option: true,
+    };
   },
-  methods:{
-    handleOption(option){
-      console.log("Option selected",option)
-      this.$router.push('./cotizador-3')
-    }
-  }
-}
+  methods: {
+    handleOption(option) {
+      console.log("Option selected", option);
+      this.$router.push("./cotizador-3");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -84,9 +80,9 @@ export default {
   border-radius: 10px;
   font-weight: 800;
 }
-.general__section{
+.general__section {
   background-color: #f2f2f2;
-  height: 100vh;
+  width: 100%;
 }
 /* pagina 2 */
 .container__cotizador-2 {
@@ -95,12 +91,11 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  margin-top: 100px;
+  width: 100%;
+  height: 100vh;
   padding: 0.5em;
-  
 }
-.container__cotizador-2 h2{
+.container__cotizador-2 h2 {
   font-size: 1em;
   font-weight: 800;
 }
@@ -143,7 +138,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.contact__container h3{
+.contact__container h3 {
   font-size: 1em;
   margin: 1.7em;
 }
@@ -162,6 +157,11 @@ export default {
     font-size: 0.9em;
   }
 }
+@media (max-width: 739px) {
+  .container__cotizador-2 {
+    height: 100%;
+  }
+}
 @media (max-width: 520px) {
   .cards {
     grid-template-columns: repeat(1, 4fr);
@@ -174,6 +174,4 @@ export default {
     font-size: 0.7em;
   }
 }
-
-
 </style>

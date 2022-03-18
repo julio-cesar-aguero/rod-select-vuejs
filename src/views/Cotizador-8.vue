@@ -1,6 +1,5 @@
 <template>
   <div class="general__section">
-
     <!-- Pagina 8 -->
     <section id="cotizador-8">
       <div class="column__left">
@@ -49,10 +48,7 @@
     </section>
     <section>
       <div class="to-home">
-        <i 
-          class="fa-solid fa-angle-up"
-          @click="handleToHome"
-        ></i>
+        <i class="fa-solid fa-angle-up" @click="handleToHome"></i>
       </div>
     </section>
   </div>
@@ -60,18 +56,16 @@
 
 <script>
 export default {
-
-  name: 'Cotizador-8',
-  methods:{
-    handleToHome(){
-      this.$router.push('./')
-    }
-  }
-}
+  name: "Cotizador-8",
+  methods: {
+    handleToHome() {
+      this.$router.push("./");
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 /* 8 */
 #cotizador-8 {
   width: 100%;
@@ -82,7 +76,8 @@ export default {
   margin-top: 10px;
   padding: 3.5em;
 }
-.column__left,.column__right{
+.column__left,
+.column__right {
   width: 40%;
 }
 #cotizador-8 .column__left {
@@ -104,26 +99,25 @@ h3 {
   padding: 0.5em;
   margin: 1.2em;
 }
-.column__right{
+.column__right {
   height: 300px;
 }
 
-.to-home{
+.to-home {
   height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.to-home{
+.to-home {
   cursor: pointer;
   padding: 2em;
   font-size: 2.7em;
 }
-.to-home:hover{
-  
+.to-home:hover {
 }
-  /* responsive */
+/* responsive */
 @media (max-width: 1200px) {
   .cards {
     grid-template-columns: repeat(2, 2fr);
@@ -140,16 +134,17 @@ h3 {
 }
 
 @media (max-width: 739px) {
-  #cotizador-8{
+  #cotizador-8 {
     flex-direction: column;
   }
-  .column__left,.column__right{
+  .column__left,
+  .column__right {
     width: 95vw;
     padding: 0.2em;
     margin: 0.1em;
     height: auto;
   }
-  .column__right{
+  .column__right {
     height: 400px;
   }
 }
@@ -165,5 +160,4 @@ h3 {
     font-size: 0.7em;
   }
 }
-
 </style>

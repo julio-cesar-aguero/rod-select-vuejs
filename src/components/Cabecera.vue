@@ -71,7 +71,7 @@ export default {
   let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight > document.documentElement.offsetHeight -1;
   if (bottomOfWindow ) {
     // ...
-    this.$router.go(1)
+    //this.$router.go(1)
   }
   }
 

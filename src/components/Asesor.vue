@@ -17,7 +17,6 @@ export default {
     computed: {
         mensajeC: function(){
           console.log("MensajeComputed")
-          var texto="Michi";
           window.open("https://api.whatsapp.com/send?phone=+523318954279&text=%C2%A1Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20regalos%20corporativos");
         }
     },

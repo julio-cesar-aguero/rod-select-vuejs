@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import Asesor from "../components/Asesor.vue";
 export default {
   name: "Cotizador-2",
@@ -57,12 +58,35 @@ export default {
   },
   data() {
     return {
+      dataView: {
+        name: 'presupuesto',
+        cantidad: '10,000'
+      },
       option: true,
     };
   },
+   computed: {
+        ...mapState(['cotizacion'])
+    },
   methods: {
     handleOption(option) {
-      console.log("Option selected", option);
+      switch (option) {
+        case 1:
+          this.dataView.cantidad = '< 80,000'
+        break;
+        case 2:
+          this.dataView.cantidad = '80,000 >< 150,000'
+        break;
+        case 3:
+          this.dataView.cantidad = '150,000 >< 500,000'
+        break;
+        case 4:
+          this.dataView.cantidad = ' > 500,000'
+        break;      
+        default:
+          break;
+      }
+      this.$store.dispatch("cotizacionAction", this.dataView);
       this.$router.push("./cotizador-3");
     },
   },

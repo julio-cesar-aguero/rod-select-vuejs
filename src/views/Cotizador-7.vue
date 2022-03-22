@@ -3,7 +3,7 @@
     <!-- Pagina 7 -->
     <section id="cotizador-7">
       <div class="form__information">
-        <h1>{{ this.$store.state.emailCorporativo }}</h1>
+        <h1>{{ this.emailCorporativo }}</h1>
         <span>¡MUCHAS GRACIAS POR LLEGAR HASTA AQUÍ!</span>
         <p>
           Apoyanos dejando tus datos para hacerte llegar tu cotizacion
@@ -43,19 +43,26 @@
 </template>
 
 <script>
+
+import {mapState} from 'vuex'
+
 export default {
   name: "Cotizador-7",
   data() {
     return {
       email: "",
       formData: new Object(),
+      formData2: {},
       mensaje: new String(),
       showMensaje: false,
     };
   },
-  mounted() {
+  created() {
     this.email = this.$store.getters.getEmail;
   },
+   computed: {
+        ...mapState(['emailCorporativo'])
+    },
   watch: {
     email(newEmail) {
       localStorage.email = newEmail;
@@ -87,7 +94,7 @@ export default {
           //enviarDatos(cotizacion);
           //this.axios.post('http://localhost:3000/api/rodselect/cotizacion',data)
           this.axios
-            .post("https://sistemasrod/api/rodselect/cotizacion", data)
+            .post("/rodselect/cotizacion", data)
             .then((res) => {
               console.log(res);
               this.mensaje =

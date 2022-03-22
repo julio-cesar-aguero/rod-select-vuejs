@@ -42,12 +42,32 @@ export default {
   },
   data() {
     return {
+      dataView: {
+        name: 'entrega',
+        personas: ''
+      },
       option: true,
     };
   },
   methods: {
     handleOption(option) {
-      console.log("Option selected", option);
+      switch (option) {
+        case 1:
+          this.dataView.cantidad = 'Colaboradores'
+        break;
+        case 2:
+          this.dataView.cantidad = 'Clientes'
+        break;
+        case 3:
+          this.dataView.cantidad = 'Socios'
+        break;
+        case 4:
+          this.dataView.cantidad = 'Otros'
+        break;      
+        default:
+          break;
+      }
+      this.$store.dispatch("cotizacionAction", this.dataView);
       this.$router.push("./cotizador-6");
     },
   },

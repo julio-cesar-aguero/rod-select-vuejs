@@ -105,6 +105,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Asesor from "../components/Asesor.vue";
 export default {
   name: "Cotizador-6",
@@ -114,6 +115,10 @@ export default {
   data() {
     return {
       option: "",
+      dataView: {
+        name: 'regalo',
+        cantidad: ''
+      },
       boxs: {
         joyeria: "Joyería personalizada",
         piel: "Artículos de Piel",
@@ -129,8 +134,9 @@ export default {
   },
   methods: {
     selectArticle(article) {
-      console.log("article", article);
-      this.option = this.$router.push("/Cotizador-7");
+    this.dataView.cantidad = this.boxs[article]
+    this.$store.dispatch("cotizacionAction", this.dataView);
+    this.option = this.$router.push("/Cotizador-7");
     },
   },
 };
@@ -310,44 +316,10 @@ form {
   font-size: 12px;
 }
 /* 8 */
-#cotizador-8 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 3.5em;
-}
+
 .column__left,
 .column__right {
   width: 50%;
-}
-#cotizador-8 .column__left {
-  margin: 1em;
-  padding: 1.4em;
-}
-#cotizador-8 .column__right {
-  padding: 1.4em;
-  height: 50%;
-  border-radius: 2px;
-  background-color: rgba(110, 110, 110, 0.3);
-}
-#cotizador-8 .column__left h2,
-h3 {
-  font-weight: 600;
-}
-#cotizador-8 .column__left p {
-  font-weight: 300;
-}
-
-#cotizador-6 {
-  display: flex;
-  flex-direction: column;
-}
-.column__left,
-.column__right {
-  width: 100%;
-}
-#cotizador-8 {
-  flex-direction: column;
 }
 /* responsive */
 @media (max-width: 1200px) {
@@ -363,6 +335,15 @@ h3 {
   .box span {
     font-size: 0.9em;
   }
+}
+@media (max-width: 739px) {
+  #cotizador-6 {
+    flex-direction: column;
+  }
+  .column__left,
+.column__right {
+  width: 100%;
+}
 }
 @media (max-width: 520px) {
   .cards {

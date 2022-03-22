@@ -80,7 +80,7 @@ export default {
       formData: new Object(),
       mensaje: new String(),
       showMensaje: false,
-      selected: ''
+      selected: "",
     };
   },
   methods: {
@@ -90,9 +90,9 @@ export default {
         name: this.formData.name,
         email: this.formData.email,
         telefono: this.formData.telefono,
-        categoria: this.selected
+        categoria: this.selected,
       };
-      console.log(data)
+      console.log(data);
       let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
       let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
 
@@ -106,7 +106,7 @@ export default {
           //enviarDatos(prospecto);
           this.axios
             //.post("/rodselect/prospecto", data)
-            .post('/rodselect/prospecto', data)
+            .post("/rodselect/prospecto", data)
             .then((res) => {
               console.log(res);
               this.mensaje =
@@ -133,9 +133,9 @@ export default {
       this.formData.email = "";
       this.formData.telefono = "";
     },
-    doSomething(){
-      console.log("doSomething")
-    }
+    doSomething() {
+      console.log("doSomething");
+    },
   },
 };
 </script>
@@ -251,9 +251,8 @@ form select {
   width: 90%;
   margin: 1em 2em;
 }
-form select option{
+form select option {
   padding: 1.5em;
-
 }
 label,
 input,

@@ -40,13 +40,18 @@ export default {
       option: true,
       time1: null,
       message: false,
+      dataView: {
+        name: 'date',
+        cantidad: ''
+      },
     };
   },
   methods: {
     handleOption(option) {
       this.message = false;
       if (this.time1 != null) {
-        console.log("Fecha", this.time1);
+        this.dataView.cantidad = this.time1
+        this.$store.dispatch("cotizacionAction", this.dataView);
         this.$router.push("./cotizador-5");
       } else {
         this.message = true;

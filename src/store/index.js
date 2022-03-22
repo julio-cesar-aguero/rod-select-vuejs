@@ -7,7 +7,22 @@ export default new Vuex.Store({
   state: {
     // informacion general
     immersiveMode : false,
-    emailCorporativo: new String
+    emailCorporativo: new String,
+    cotizacion:{
+      nombre: '',
+      apellidos: '',
+      email: '',
+      date: '',
+      telefono: '',
+      empresa: '',
+      presupuesto: '10,000',
+      personas: '',
+      entrega: '',
+      receptor: '',
+      regalo: '',
+      comentario: '',
+      activo: ''
+    }
   },
   mutations: {
     // modificadores de estado
@@ -19,6 +34,12 @@ export default new Vuex.Store({
     },
     addEmail( state, payload ) {
       state.emailCorporativo = payload
+      state.cotizacion.email = state.emailCorporativo
+    },
+    Cotizacion(state,payload){
+      var option = payload.name
+      state.cotizacion[option] = payload.cantidad
+      console.log("mochi",payload.name)
     }
   },
   actions: {
@@ -32,6 +53,10 @@ export default new Vuex.Store({
     ,
     addEmailAction( { commit } ,payload){
       commit('addEmail',payload)
+    },
+    cotizacionAction({commit} ,payload){
+      console.log("michi",payload.name)
+      commit('Cotizacion',payload)
     }
   },
   getters:{

@@ -43,14 +43,33 @@ export default {
   },
   data() {
     return {
+      dataView: {
+        name: 'personas',
+        personas: '1 a 10,000'
+      },
       option: true,
     };
   },
   methods: {
-    handleOption(option) {
-      console.log("Option selected", option);
+   handleOption(option) {
+      switch (option) {
+        case 1:
+          this.dataView.cantidad = '1 a 10,000'
+        break;
+        case 2:
+          this.dataView.cantidad = '10,000 a 100,000'
+        break;
+        case 3:
+          this.dataView.cantidad = '100,000 a 500,000'
+        break;
+        case 4:
+          this.dataView.cantidad = ' mas de 500,000'
+        break;      
+        default:
+          break;
+      }
+      this.$store.dispatch("cotizacionAction", this.dataView);
       this.$router.push("./cotizador-4");
-      this.option = false;
     },
   },
 };

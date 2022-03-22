@@ -53,16 +53,16 @@ export default {
     handleOption(option) {
       switch (option) {
         case 1:
-          this.dataView.cantidad = 'Colaboradores'
+          this.dataView.cantidad = 'COLABORADORES'
         break;
         case 2:
-          this.dataView.cantidad = 'Clientes'
+          this.dataView.cantidad = 'CLIENTES'
         break;
         case 3:
-          this.dataView.cantidad = 'Socios'
+          this.dataView.cantidad = 'SOCIOS'
         break;
         case 4:
-          this.dataView.cantidad = 'Otros'
+          this.dataView.cantidad = 'OTROS'
         break;      
         default:
           break;

@@ -106,6 +106,7 @@ export default {
                 this.$router.push("./Cotizador-8");
               })
               .catch((err) => {
+                this.showMensaje = true;
                 console.log(err.response);
                 this.mensaje =
                   "Este correo ya fue registrado, espera a que te contactemos.";

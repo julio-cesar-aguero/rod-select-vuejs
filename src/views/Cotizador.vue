@@ -85,7 +85,6 @@ export default {
       }
     },
     addEmail() {
-      console.log("Email enviar", this.email, this.email);
       this.$store.dispatch("addEmailAction", this.email);
     },
   },

@@ -57,7 +57,7 @@ export default {
       email: "",
       formData: new Object(),
       mensaje: new String(),
-      showMensaje: true,
+      showMensaje: false,
     };
   },
   created() {
@@ -77,7 +77,7 @@ export default {
       var numero = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
         if(this.formIsValid()){
           if (!numero.test(this.formData.telefono)) {
-            console.log("numero michi",this.formData.telefono)
+            
           }else{
         alert("correcto")
         this.$store.dispatch("cotizacionFormAction", this.formData);
@@ -86,23 +86,17 @@ export default {
       }
     },
     formIsValid(){
-      if(this.formData.nombre != undefined && this.formData.apellidos != undefined && this.formData.telefono != undefined && this.formData.empresa != undefined ){
-        
+      if(this.formData.nombre != undefined && this.formData.apellidos != undefined && this.formData.telefono != undefined && this.formData.empresa != undefined ){  
         return true
       }else{
         this.mensaje = 'Completa el formulario'
       }
     },
-    registro(){
-      console.log("hola")
-    }
-    ,
     register() {
       console.log("REGISTER")
             this.axios
               .post("/rodselect/nueva-cot", this.cotizacion)
               .then((res) => {
-                console.log(res);
                 this.mensaje =
                   " Muchas felicidades " +
                   data.email +

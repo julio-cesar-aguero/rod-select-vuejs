@@ -39,11 +39,7 @@ export default new Vuex.Store({
     Cotizacion(state,payload){
       var option = payload.name
       state.cotizacion[option] = payload.cantidad
-      console.log("mochi",payload.name)
     },
-    CotizacionForm(state,payload){
-      console.log(payload)
-    }
   },
   actions: {
     // llamado a las mutaciones 
@@ -58,7 +54,6 @@ export default new Vuex.Store({
       commit('addEmail',payload)
     },
     cotizacionAction({commit} ,payload){
-      console.log("michi",payload.name)
       commit('Cotizacion',payload)
     },
     cotizacionFormAction({commit} ,payload){
@@ -67,11 +62,8 @@ export default new Vuex.Store({
           name: property,
           cantidad : payload[property]
         }
-        console.log(`${property}: ${payload[property]}`);
-        console.log("popis",dataView)
         commit('Cotizacion',dataView)
       }
-      console.log("popis")
       commit('CotizacionForm',payload)
     }
   },

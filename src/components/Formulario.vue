@@ -95,6 +95,7 @@ export default {
       console.log(data);
       let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
       let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
+      let expnumber = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
       if (expdominio.test(data.email)) {
         this.mensaje = "Ingresa un correo corporativo";
@@ -103,6 +104,9 @@ export default {
         if (!exp.test(data.email)) {
           this.mensaje = "Ingresa un correo valido";
         } else {
+          if(expnumber.test(this.formData.telefono)){
+            console.log("telefono",this.formData.telefono)
+          }else{
           //enviarDatos(prospecto);
           this.axios
             //.post("/rodselect/prospecto", data)
@@ -121,6 +125,7 @@ export default {
               this.mensaje =
                 "Este correo ya fue registrado, espera a que te contactemos.";
             });
+          }
         }
       }
     },

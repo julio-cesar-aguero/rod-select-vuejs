@@ -105,7 +105,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 import Asesor from "../components/Asesor.vue";
 export default {
   name: "Cotizador-6",
@@ -116,8 +116,8 @@ export default {
     return {
       option: "",
       dataView: {
-        name: 'regalo',
-        cantidad: ''
+        name: "regalo",
+        cantidad: "",
       },
       boxs: {
         joyeria: "Joyería personalizada",
@@ -134,9 +134,9 @@ export default {
   },
   methods: {
     selectArticle(article) {
-    this.dataView.cantidad = this.boxs[article]
-    this.$store.dispatch("cotizacionAction", this.dataView);
-    this.option = this.$router.push("/Cotizador-7");
+      this.dataView.cantidad = this.boxs[article];
+      this.$store.dispatch("cotizacionAction", this.dataView);
+      this.option = this.$router.push("/Cotizador-7");
     },
   },
 };
@@ -341,9 +341,9 @@ form {
     flex-direction: column;
   }
   .column__left,
-.column__right {
-  width: 100%;
-}
+  .column__right {
+    width: 100%;
+  }
 }
 @media (max-width: 520px) {
   .cards {

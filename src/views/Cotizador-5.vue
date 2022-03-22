@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       dataView: {
-        name: 'entrega',
+        name: 'receptor',
         personas: ''
       },
       option: true,

@@ -3,7 +3,6 @@
     <!-- Pagina 7 -->
     <section id="cotizador-7">
       <div class="form__information">
-        <h1>{{ this.emailCorporativo }}</h1>
         <span>¡MUCHAS GRACIAS POR LLEGAR HASTA AQUÍ!</span>
         <p>
           Apoyanos dejando tus datos para hacerte llegar tu cotizacion
@@ -14,9 +13,9 @@
       <div class="container__form">
         <form>
           <label for="name">Nombre:</label>
-          <input v-model.trim="formData.name" type="text" name="name" />
+          <input v-model.trim="formData.nombre" type="text" name="name" required/>
           <label for="lastname">Apellido:</label>
-          <input v-model.trim="formData.lastname" type="text" name="lastname" />
+          <input v-model.trim="formData.apellidos" type="text" name="lastname" />
           <label for="email">E-mail corporativo:</label>
           <input v-model.trim="this.email" type="text" name="email" disabled />
           <label for="phone">Telefono:</label>
@@ -28,12 +27,17 @@
           </label>
           <textarea
             class="boxText"
-            v-model="formData.extra"
+            v-model="formData.comentario"
             name="comentarios"
             rows="10"
             cols="40"
           ></textarea>
-          <button @click="greet" type="submit" class="white-button">
+          <div class="message__container" v-show="showMensaje">
+              <p id="mensaje-validacion">
+                <i class="fas fa-exclamation-triangle"></i> {{ mensaje }}
+              </p>
+            </div>
+          <button @click="enviar" type="button" class="white-button">
             Enviar
           </button>
         </form>
@@ -43,34 +47,50 @@
 </template>
 
 <script>
-
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
 
 export default {
   name: "Cotizador-7",
   data() {
     return {
+      active: false,
       email: "",
       formData: new Object(),
-      formData2: {},
       mensaje: new String(),
-      showMensaje: false,
+      showMensaje: true,
     };
   },
   created() {
     this.email = this.$store.getters.getEmail;
   },
-   computed: {
-        ...mapState(['emailCorporativo'])
-    },
+  computed: {
+    ...mapState(["cotizacion"]),
+  },
   watch: {
     email(newEmail) {
       localStorage.email = newEmail;
     },
   },
   methods: {
-    submit() {
-      this.$router.push("./Cotizador-8");
+
+    enviar(){
+      var numero = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+        if(this.formIsValid()){
+          if (!numero.test(this.formData.telefono)) {
+            console.log("numero michi",this.formData.telefono)
+          }else{
+        alert("correcto")
+        this.$store.dispatch("cotizacionFormAction", this.formData);
+        }
+      }
+    },
+    formIsValid(){
+      if(this.formData.nombre != undefined && this.formData.apellidos != undefined && this.formData.telefono != undefined && this.formData.empresa != undefined ){
+        
+        return true
+      }else{
+        this.mensaje = 'Completa el formulario'
+      }
     },
     register() {
       var data = {
@@ -78,44 +98,49 @@ export default {
         lastname: this.formData.lastname,
         email: this.formData.email,
         telefono: this.formData.telefono,
-        empresa: this.formData.Empresa,
-        extra: this.formData.extra,
+        empresa: this.formData.empresa,
+        extra: this.formData.comentario,
       };
       let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
       let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
+      let expnumber =
+        /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
-      if (expdominio.test(data.email)) {
+      if (expdominio.test(this.formData.email)) {
         this.mensaje = "Ingresa un correo corporativo";
         this.showMensaje = true;
       } else {
-        if (!exp.test(data.email)) {
+        if (!exp.test(this.formData.email)) {
           this.mensaje = "Ingresa un correo valido";
         } else {
-          //enviarDatos(cotizacion);
-          //this.axios.post('http://localhost:3000/api/rodselect/cotizacion',data)
-          this.axios
-            .post("/rodselect/cotizacion", data)
-            .then((res) => {
-              console.log(res);
-              this.mensaje =
-                " Muchas felicidades " +
-                data.email +
-                ", te haz registrado correctamente, espera a que te contactemos.";
-              this.showMensaje = true;
-              this.resetForm();
-              this.$router.push("./Cotizador-8");
-            })
-            .catch((err) => {
-              console.log(err.response);
-              this.mensaje =
-                "Este correo ya fue registrado, espera a que te contactemos.";
-            });
+          if (expnumber.test(this.formData.telefono)) {
+            alert("telefono", this.formData.telefono);
+          } else {
+            //enviarDatos(cotizacion);
+            //this.axios.post('http://localhost:3000/api/rodselect/cotizacion',data)
+            this.axios
+              .post("/rodselect/cotizacion", data)
+              .then((res) => {
+                console.log(res);
+                this.mensaje =
+                  " Muchas felicidades " +
+                  data.email +
+                  ", te haz registrado correctamente, espera a que te contactemos.";
+                this.showMensaje = true;
+                this.resetForm();
+                this.$router.push("./Cotizador-8");
+              })
+              .catch((err) => {
+                console.log(err.response);
+                this.mensaje =
+                  "Este correo ya fue registrado, espera a que te contactemos.";
+              });
+          }
         }
       }
     },
-    greet(event) {
-      event.preventDefault();
-      this.register();
+    submit() {
+      this.$router.push("./Cotizador-8");
     },
     resetForm() {
       this.formData.name = "";
@@ -186,6 +211,28 @@ export default {
   border: none;
   border-radius: 10px;
   font-weight: 800;
+}
+.message__container {
+  height: 55px;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.4em;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.637);
+}
+#mensaje-validacion,
+hr {
+  font-size: 0.7em;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+}
+.message__container i {
+  color: yellow;
+  font-size: 1.5em;
 }
 @media (max-width: 739px) {
   .container__form form {

@@ -9,19 +9,19 @@ export default new Vuex.Store({
     immersiveMode : false,
     emailCorporativo: new String,
     cotizacion:{
-      nombre: '',
+      email:     '',
+      nombre:    '',
       apellidos: '',
-      email: '',
-      date: '',
-      telefono: '',
-      empresa: '',
-      presupuesto: '10,000',
-      personas: '',
-      entrega: '',
-      receptor: '',
-      regalo: '',
-      comentario: '',
-      activo: ''
+      telefono:  '',
+      date:      '',
+      empresa:   '',
+      presupuesto: '',
+      personas:  '',
+      entrega:   '',
+      receptor:  '',
+      regalo:    '',
+      comentario:'',
+      activo: true
     }
   },
   mutations: {
@@ -40,6 +40,9 @@ export default new Vuex.Store({
       var option = payload.name
       state.cotizacion[option] = payload.cantidad
       console.log("mochi",payload.name)
+    },
+    CotizacionForm(state,payload){
+      console.log(payload)
     }
   },
   actions: {
@@ -57,6 +60,19 @@ export default new Vuex.Store({
     cotizacionAction({commit} ,payload){
       console.log("michi",payload.name)
       commit('Cotizacion',payload)
+    },
+    cotizacionFormAction({commit} ,payload){
+      for (const property in payload) {
+        var dataView = {
+          name: property,
+          cantidad : payload[property]
+        }
+        console.log(`${property}: ${payload[property]}`);
+        console.log("popis",dataView)
+        commit('Cotizacion',dataView)
+      }
+      console.log("popis")
+      commit('CotizacionForm',payload)
     }
   },
   getters:{

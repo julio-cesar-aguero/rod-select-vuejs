@@ -88,10 +88,8 @@ export default {
   },
   to(ruta){
     if(ruta=='/cotizador'){
-    console.log(this.$router)
     this.changeMode();
       if(this.showMenu == true) this.showMenu = false;
-      console.log("Michi ruta",ruta);
       this.$router.push(ruta)
     }else{
       if(this.showMenu == false) this.showMenu = true;

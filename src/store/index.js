@@ -64,7 +64,6 @@ export default new Vuex.Store({
         }
         commit('Cotizacion',dataView)
       }
-      commit('CotizacionForm',payload)
     }
   },
   getters:{

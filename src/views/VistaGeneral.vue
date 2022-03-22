@@ -383,11 +383,9 @@ export default {
     Formulario: Formulario,
   },
   created() {
-    console.log("CREATED");
     this.$store.dispatch("changeModeAction", true);
   },
   mounted() {
-    console.log("MOUNTED");
   },
 };
 </script>

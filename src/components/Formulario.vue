@@ -105,7 +105,6 @@ export default {
           this.mensaje = "Ingresa un correo valido";
         } else {
           if(expnumber.test(this.formData.telefono)){
-            console.log("telefono",this.formData.telefono)
           }else{
           //enviarDatos(prospecto);
           this.axios
@@ -137,9 +136,6 @@ export default {
       this.formData.name = "";
       this.formData.email = "";
       this.formData.telefono = "";
-    },
-    doSomething() {
-      console.log("doSomething");
     },
   },
 };

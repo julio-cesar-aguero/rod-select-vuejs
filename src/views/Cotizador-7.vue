@@ -97,17 +97,11 @@ export default {
             this.axios
               .post("/rodselect/nueva-cot", this.cotizacion)
               .then((res) => {
-                this.mensaje =
-                  " Muchas felicidades " +
-                  data.email +
-                  ", te haz registrado correctamente, espera a que te contactemos.";
-                this.showMensaje = true;
-                this.resetForm();
+                console.log(res);
                 this.$router.push("./Cotizador-8");
               })
               .catch((err) => {
                 this.showMensaje = true;
-                console.log(err.response);
                 this.mensaje =
                   "Este correo ya fue registrado, espera a que te contactemos.";
               });

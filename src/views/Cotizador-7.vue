@@ -79,7 +79,7 @@ export default {
           if (!numero.test(this.formData.telefono)) {
             
           }else{
-        alert("correcto")
+        //alert("correcto")
         this.$store.dispatch("cotizacionFormAction", this.formData);
         this.register()
         }
@@ -97,7 +97,7 @@ export default {
             this.axios
               .post("/rodselect/nueva-cot", this.cotizacion)
               .then((res) => {
-                console.log(res);
+                //console.log(res);
                 this.$router.push("./Cotizador-8");
               })
               .catch((err) => {
@@ -162,13 +162,16 @@ export default {
   margin: 0.4em;
   height: 35px;
   border: none;
-  background-color: antiquewhite;
-  border-radius: 20px;
+  background-color: white;
+  border-radius: 7px;
 }
 .boxText {
   height: 200px;
-  background-color: antiquewhite;
-  border-radius: 20px;
+  border: none;
+  background-color: white;
+  border-radius: 7px;
+  margin: 0.7em;
+  padding: 0.9em;
 }
 .white-button {
   background-color: white;

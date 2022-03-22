@@ -81,6 +81,7 @@ export default {
           }else{
         alert("correcto")
         this.$store.dispatch("cotizacionFormAction", this.formData);
+        this.register()
         }
       }
     },
@@ -92,34 +93,14 @@ export default {
         this.mensaje = 'Completa el formulario'
       }
     },
+    registro(){
+      console.log("hola")
+    }
+    ,
     register() {
-      var data = {
-        name: this.formData.name,
-        lastname: this.formData.lastname,
-        email: this.formData.email,
-        telefono: this.formData.telefono,
-        empresa: this.formData.empresa,
-        extra: this.formData.comentario,
-      };
-      let exp = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
-      let expdominio = /(gmail)|(hotmail)|(outlook)|(yahoo)/;
-      let expnumber =
-        /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-
-      if (expdominio.test(this.formData.email)) {
-        this.mensaje = "Ingresa un correo corporativo";
-        this.showMensaje = true;
-      } else {
-        if (!exp.test(this.formData.email)) {
-          this.mensaje = "Ingresa un correo valido";
-        } else {
-          if (expnumber.test(this.formData.telefono)) {
-            alert("telefono", this.formData.telefono);
-          } else {
-            //enviarDatos(cotizacion);
-            //this.axios.post('http://localhost:3000/api/rodselect/cotizacion',data)
+      console.log("REGISTER")
             this.axios
-              .post("/rodselect/cotizacion", data)
+              .post("/rodselect/nueva-cot", this.cotizacion)
               .then((res) => {
                 console.log(res);
                 this.mensaje =
@@ -135,9 +116,6 @@ export default {
                 this.mensaje =
                   "Este correo ya fue registrado, espera a que te contactemos.";
               });
-          }
-        }
-      }
     },
     submit() {
       this.$router.push("./Cotizador-8");

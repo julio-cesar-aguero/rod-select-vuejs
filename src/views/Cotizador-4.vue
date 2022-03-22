@@ -52,6 +52,8 @@ export default {
       if (this.time1 != null) {
         this.dataView.cantidad = this.time1
         this.$store.dispatch("cotizacionAction", this.dataView);
+        this.dataView.name = 'entrega'
+        this.$store.dispatch("cotizacionAction", this.dataView);
         this.$router.push("./cotizador-5");
       } else {
         this.message = true;

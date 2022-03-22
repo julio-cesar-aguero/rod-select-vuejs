@@ -9,11 +9,11 @@ export default new Vuex.Store({
     immersiveMode : false,
     emailCorporativo: new String,
     cotizacion:{
-      email:     '',
       nombre:    '',
       apellidos: '',
-      telefono:  '',
+      email:     '',
       date:      '',
+      telefono:  '',
       empresa:   '',
       presupuesto: '',
       personas:  '',

@@ -145,7 +145,7 @@ h3 {
   padding: 1em;
 }
 .emailForm input {
-  height: 50px;
+  height: 40px;
   border: none;
   margin: 0.5em;
   border:2px solid rgba(0, 0, 0, 0.5);

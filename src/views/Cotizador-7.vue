@@ -81,14 +81,17 @@ export default {
           }else{
         //alert("correcto")
         this.$store.dispatch("cotizacionFormAction", this.formData);
+        console.log(this.cotizacion)
         this.register()
         }
       }
     },
     formIsValid(){
+      this.showMensaje = false;
       if(this.formData.nombre != undefined && this.formData.apellidos != undefined && this.formData.telefono != undefined && this.formData.empresa != undefined ){  
         return true
       }else{
+        this.showMensaje = true;
         this.mensaje = 'Completa el formulario'
       }
     },
@@ -97,7 +100,6 @@ export default {
             this.axios
               .post("/rodselect/nueva-cot", this.cotizacion)
               .then((res) => {
-                //console.log(res);
                 this.$router.push("./Cotizador-8");
               })
               .catch((err) => {

@@ -20,7 +20,6 @@ export default new Vuex.Store({
       receptor:  '',
       regalo:    '',
       comentario:'',
-      activo: true
     }
   },
   mutations: {

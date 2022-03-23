@@ -145,11 +145,17 @@ h3 {
   padding: 1em;
 }
 .emailForm input {
+  height: 50px;
   border: none;
   margin: 0.5em;
-  padding: 0.4em 2.9em;
-  border-radius: 6px;
-}
+  border:2px solid rgba(0, 0, 0, 0.5);
+  font-size:1.25em;
+  padding:.25em .5em .3125em;
+  color:rgba(0, 0, 0, 0.836);
+  border-radius:.25em;
+  background:transparent;
+  transition:all .100s;
+}  
 .card__information small {
   font-size: 2em;
   font-weight: 500;

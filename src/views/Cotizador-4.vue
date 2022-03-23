@@ -7,7 +7,9 @@
         <div>
           <date-picker
             v-model="time1"
-            valueType="format"
+            valueType="date"
+            
+            lang="es"
             :disabled-date="notBeforeToday"
           ></date-picker>
         </div>
@@ -41,8 +43,8 @@ export default {
       time1: null,
       message: false,
       dataView: {
-        name: 'date',
-        cantidad: ''
+        name: 'entrega',
+        cantidad: Date.now()
       },
     };
   },
@@ -50,9 +52,7 @@ export default {
     handleOption(option) {
       this.message = false;
       if (this.time1 != null) {
-        this.dataView.cantidad = this.time1
-        this.$store.dispatch("cotizacionAction", this.dataView);
-        this.dataView.name = 'entrega'
+        this.dataView.cantidad = this.time1.toISOString();
         this.$store.dispatch("cotizacionAction", this.dataView);
         this.$router.push("./cotizador-5");
       } else {

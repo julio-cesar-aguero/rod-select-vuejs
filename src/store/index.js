@@ -12,7 +12,6 @@ export default new Vuex.Store({
       nombre:    '',
       apellidos: '',
       email:     '',
-      date:      '',
       telefono:  '',
       empresa:   '',
       presupuesto: '',

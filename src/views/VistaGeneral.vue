@@ -107,7 +107,7 @@
       />
 
       <section id="beneficios">
-        <img loading="lazy" src="../assets/img/principal/beneficios2.jpg" />
+        <img class="beneficios-img" loading="lazy" src="../assets/img/principal/beneficios2.jpg" />
         <div class="lista-ordenada">
           <h3>Beneficios</h3>
           <ol class="listaol">
@@ -502,6 +502,9 @@ export default {
   grid-template-areas: "imagen lista";
   place-content: center;
 }
+#beneficios .beneficios-img{
+  max-width: 500px;
+}
 #beneficios {
   grid-area: imagen;
 }
@@ -743,7 +746,8 @@ export default {
   #beneficios {
     padding-top: 10px;
     position: relative;
-    width: 100%;
+    width: 90%;
+    place-items: center;
     grid-template-areas:
       "imagen"
       "lista";
@@ -753,9 +757,9 @@ export default {
   }
   #beneficios img {
     position: absolute;
-    width: 1000px;
-    top: 10%;
-    height: 90%;
+    margin: 0 auto;
+    width: 90%;
+    top: 15%;
   }
   #beneficios .lista-ordenada {
     margin: 0;
@@ -785,7 +789,7 @@ export default {
     place-items: center;
   }
   #beneficios img {
-    width: 100vw;
+    width: 95%;
   }
 }
 
